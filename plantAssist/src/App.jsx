@@ -11,6 +11,7 @@ import Zone from './component/Zone'
 import Favorites from "./component/pages/Favorites";
 import Profile from "./component/pages/Profile";
 import AboutUs from "./component/pages/AboutUs";
+import Logout from "./component/pages/Logout";
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
           <Route path='/zone' element={<Zone />} />
           <Route path='/favorites' element={<Favorites/>} />
           <Route path='/aboutus' element={<AboutUs/>} />
+          <Route path='/logout' element={<Logout/>} />
         </Routes>
    
     </>

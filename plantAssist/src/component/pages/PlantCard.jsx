@@ -23,15 +23,23 @@ function PlantCard(props) {
         console.log("Response", json);
       });
   };
+const styles = {
+    backgroundImage: `url(${plant.image})`, 
+    width:'300px', 
+    height:'400px', 
+    margin: '10px'
+}
 
   return (
-    <>
-      <h1>Plant Cards Here</h1>
+  
+
+    <div style={styles}>
       <div>Name: {plant.name}</div>
       <div>Description: {plant.description}</div>
       <div>Image: {plant.image}</div>
       <button onClick={handleFavorite}>Add to Favorties</button>
-    </>
+    </div>
+    
   );
 }
 export default PlantCard;

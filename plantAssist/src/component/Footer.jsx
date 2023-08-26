@@ -25,7 +25,7 @@ function Footer() {
         </div>
 
         <div className="footer-link-items">
-          <Link to="/">Logout</Link>
+          <Link to="/logout">Logout</Link>
         </div>
 
         {/* <div className="footer-link-items">
