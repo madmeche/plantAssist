@@ -1,46 +1,46 @@
 import React, { useEffect, useState } from "react";
 
-const PlantFavorites = () => {
+function PlantFavorites() {
 
 const [data, setData] = useState([]);
-const {plant} = useState('')
+// const {plant} = props // doesn't like props.
+// const [saved, setSaved] = useState(false)
 
-const handleFavorite = (e) => {
-  e.preventDefault();
+// const handleFavorite = (e) => {
+//   e.preventDefault();
 
-  console.log(plant.id); // cannot read properties 'id' have tried, data, key, [] [0], [data]...
+//   console.log(plant.id); // cannot read properties 'id' have tried, data, key, [] [0], [data]...
 
-  const data = {
-    plantIds: [plant.id]
-  }
+  // const data = {
+  //   plantIds: [plant.id]
+  // }
 
-  const userId= sessionStorage.getItem("id")
+//   const userId= sessionStorage.getItem("id")
+
+//   useEffect(() => {
+//   fetch(`http://localhost:8080/api/users/${userId}`, {
+//     method: "PUT",
+//     body: JSON.stringify(data),
+//     headers: {
+//       "Content-type": "application/json; charset=UTF-8",      
+//     },
+//   })
+//   .then((response) => response.json())
+//   .then((json) => {
+//     // console.log(json);
+//     if(json.success){
+//       //if response success = true
+//       console.log("To do...")
+//       setSaved(true)
+//     }else{
+//       console.log("error", json.message)
+//     }
+//   }) 
+//   });
+// };
 
   useEffect(() => {
-  fetch(`http://localhost:8080/api/users/${userId}`, {
-    method: "PUT",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",      
-    },
-  })
-  .then((response) => response.json())
-  .then((json) => {
-    // console.log(json);
-    if(json.success){
-      //if response success = true
-    }else{
-      alert("Wrong username/password."); // error conditional statement down below wasn't working, so added alert
-      setError(json.message)
-    }
-  }) 
-  });
-  
-  
-};
-
-  useEffect(() => {
-    fetch("http://localhost:8080/api/plant/")
+    fetch("http://localhost:8080/api/plant")
       .then((response) => response.json())
       .then((json) => {
         console.log("Response", json.data)
@@ -62,7 +62,9 @@ const handleFavorite = (e) => {
                   <div>Name: {row.name}</div>
                   <div>Description: {row.description}</div>
                   <div>Image: {row.image}</div>
-                  <button onClick={handleFavorite}>Add to Favorites</button>
+                  <button>Add to Favorties</button>
+
+                  {/* <button onClick={handleFavorite}>{saved ? "Saved" : "Add to Favorites"}</button> */}
                 </div>
               ))}
             </div>

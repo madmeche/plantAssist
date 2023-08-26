@@ -9,21 +9,22 @@ import Register from "./component/pages/Register";
 import PlantList from "./component/pages/PlantList";
 import Zone from './component/Zone'
 import Favorites from "./component/pages/Favorites";
+import Profile from "./component/pages/Profile";
 
 
 function App() {
   // const [currentForm, setCurrentForm] = useState('login')
 
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
 
-  // useEffect(() => {
-  //   fetch("http://localhost:8080/api/plant/")
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       console.log(json)
-  //       setData(json.data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("http://localhost:8080/api/plant/")
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json)
+        setData(json.data);
+      });
+  }, []);
 
   return (
     <>
@@ -34,6 +35,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/" element={<Home />} />
+          <Route path='/profile' element={<Profile/>} />
           <Route path='/plants' element={<PlantList />} />
           <Route path='/zone' element={<Zone />} />
           <Route path='/favorites' element={<Favorites/>} />
