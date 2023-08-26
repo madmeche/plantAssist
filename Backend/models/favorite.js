@@ -11,13 +11,12 @@ Favorite.init(
   {
     id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      autoIncrement: true,
       primaryKey: true,
     },
     plantIds: {
       type: DataTypes.JSON,
     },
+    
   },
   {
     sequelize: sequelizeInstance,

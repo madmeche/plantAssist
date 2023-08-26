@@ -25,6 +25,10 @@ const signUpUser = async (data, res) => {
       // We NEVER want to send the hashed password back, EVER
       // Reset the password back to the originalPassword before returning
       data.password = originalPassword;
+      Models.Favorite.create({
+        id: data.id,
+        plantIds: []
+      })
       res.status(201).send({ success: true, data: data})
     })
     .catch(err => {
