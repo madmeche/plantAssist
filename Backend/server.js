@@ -5,17 +5,17 @@ require("dotenv").config();
 
 let dbconnect = require("./dbConnect");
 
-const Models = require("./models");
-// const Seeds = require('./seeds');
+// const Models = require("./models");
+// // const Seeds = require('./seeds');
 
-async function init() {
-  await Models.User.sync();
-  await Models.Plant.sync();
-  await Models.Folder.sync();
-  await Models.Favorite.sync();
-  await Models.Recent.sync();
-}
-init();
+// async function init() {
+//   await Models.User.sync();
+//   await Models.Plant.sync();
+//   await Models.Folder.sync();
+//   await Models.Favorite.sync();
+//   await Models.Recent.sync();
+// }
+// init();
 
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
@@ -25,6 +25,9 @@ const favoritesRoutes = require("./routes/favoritesRoutes");
 
 // const seedPlant = require('./seeds/seedPlant')
 // seedPlant.seedPlant()
+
+// const seedFavorite = require('./seeds/seedFavorite')
+// seedFavorite.seedFavorite()
 
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
@@ -57,7 +60,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/plant", plantRoutes);
 app.use("/api/folder", folderRoutes);
-app.use("/api/favorite", favoritesRoutes);
+app.use("/api/favorites", favoritesRoutes);
 
 app.get("/", (req, res) => {
   res.send({ message: "Welcome to Plant Assist" });

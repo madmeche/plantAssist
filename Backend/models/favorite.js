@@ -21,7 +21,7 @@ Favorite.init(
   },
   {
     sequelize: sequelizeInstance,
-    modelName: "favorite",
+    modelName: "favorites",
     timestamps: true,
   }
 );
