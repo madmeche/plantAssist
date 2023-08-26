@@ -10,6 +10,7 @@ import PlantList from "./component/pages/PlantList";
 import Zone from './component/Zone'
 import Favorites from "./component/pages/Favorites";
 import Profile from "./component/pages/Profile";
+import AboutUs from "./component/pages/AboutUs";
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route path='/plants' element={<PlantList />} />
           <Route path='/zone' element={<Zone />} />
           <Route path='/favorites' element={<Favorites/>} />
+          <Route path='/aboutus' element={<AboutUs/>} />
         </Routes>
    
     </>

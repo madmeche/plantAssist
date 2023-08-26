@@ -11,41 +11,34 @@ import Logout from "./pages/Logout";
 function Footer() {
   return (
     <div className="footer-container">
-      
       <div className="footer-links">
-          <div className="footer-link-items">
-            <Link to="/aboutus">
-              About Us
-            </Link>
-          </div>
+        <div className="footer-link-items">
+          <Link to="/aboutus">About Us</Link>
+        </div>
 
-          <div className="footer-link-items">
-            <Link to="/">Contact Us</Link>
-          </div>
-       
+        <div className="footer-link-items">
+          <Link to="/">Contact Us</Link>
+        </div>
 
-          <div className="footer-link-items">
-            <Link to="/">Inspiration</Link>
-          </div>
+        <div className="footer-link-items">
+          <Link to="/">Inspiration</Link>
+        </div>
 
-          <div className="footer-link-items">
-            <Link to="/">Logout</Link>
-          </div>
+        <div className="footer-link-items">
+          <Link to="/">Logout</Link>
+        </div>
 
-
-
-          {/* <div className="footer-link-items">
+        {/* <div className="footer-link-items">
             <Link>
             <button onClick={<Logout/>}>Logout</button></Link>
           </div> */}
 
-
-         
-        
+        <div className="footer-link-items">
+          <div className="website-rights-container">
+            <small className="website-rights">Plant Assist © 2023</small>
+          </div>
+        </div>
       </div>
- 
-        <small className="website-rights">Plant Assist © 2023</small>
-      
     </div>
   );
 }

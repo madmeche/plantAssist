@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import './homeStyle.css'
+import '../styles/homeStyle.css'
 // Go to setting to access profile page.
 
 
@@ -65,8 +65,10 @@ function Home() {
   return (
     <>
     <div className='list'>
+
     <div className='list-container'>
-    <p><strong>Sun Exposure: {selectedOption1}</strong></p>
+    <p><strong>Sun Exposure: {selectedOption1}</strong></p>      
+    <div className='list-containter-tog'>
       <select className="list-container-opt" value={selectedOption1} onChange={(e) => setSelectedOption1(e.target.value)}>
         {options1.map((option) => (
           <option  key={option.value} value={option.value}>
@@ -74,12 +76,12 @@ function Home() {
           </option>
         ))}
       </select>
-      <br />
-      <br />
+      </div>
       </div>
       
       <div className='list-container'>
       <p><strong>Categories: {selectedOption2}</strong></p>
+      <div className='list-containter-tog'>
       <select className="list-container-opt" value={selectedOption2} onChange={(e) => setSelectedOption2(e.target.value)}>
         {options2.map((option) => (
           <option key={option.value} value={option.value}>
@@ -87,12 +89,12 @@ function Home() {
           </option>
         ))}
       </select>
-      <br />
-      <br />
+      </div>
       </div>
 
       <div className='list-container'>
       <p><strong>Season: {selectedOption3}</strong></p>
+      <div className='list-containter-tog'>
       <select className="list-container-opt"value={selectedOption3} onChange={(e) => setSelectedOption3(e.target.value)}>
         {options3.map((option) => (
           <option  key={option.value} value={option.value}>
@@ -100,6 +102,7 @@ function Home() {
           </option>
         ))}
       </select>
+      </div>
       </div>
       </div>
     </>

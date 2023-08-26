@@ -34,7 +34,7 @@ const handleSubmit = (e) => {
       //if response success = true
       sessionStorage.setItem('authenticated', json.success);
       sessionStorage.setItem('id', json.data[0].id);
-      navigate('/plants')
+      navigate('/profile')
     }else{
       alert("Wrong username/password."); // error conditional statement down below wasn't working, so added alert
       setError(json.message)
