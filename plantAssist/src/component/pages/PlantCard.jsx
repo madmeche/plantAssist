@@ -32,12 +32,13 @@ const styles = {
 
   return (
   
-
+<div className="body">
     <div style={styles}>
-      <div>Name: {plant.name}</div>
-      <div>Description: {plant.description}</div>
+      <div className="card-title">Name: {plant.name}</div>
+      <div className="card-description">Description: {plant.description}</div>
       <div>Image: {plant.image}</div>
-      <button onClick={handleFavorite}>Add to Favorties</button>
+      <button className="card-button"onClick={handleFavorite}>Add to Favorties</button>
+    </div>
     </div>
     
   );
