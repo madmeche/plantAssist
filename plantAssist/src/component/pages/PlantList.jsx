@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { ReactDOM } from "react";
 
-function PlantFavorites() {
+function PlantList() {
 
 const [data, setData] = useState([]);
 // const {plant} = props // doesn't like props.
@@ -73,4 +74,4 @@ const [data, setData] = useState([]);
   );
 };
 
-export default PlantFavorites;
+export default PlantList;

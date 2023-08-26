@@ -58,13 +58,13 @@
   display: flex;
   justify-content: right;
   position: fixed;
-
-  outline: black solid;
-  heght: 50vh
+bottom: 0;
+  /* outline: black solid; */
+  height: 3.5vh
 
 }
 .website-rights {
-  outline: #264a79;
+  /* outline: #264a79; */
   color: #fff;
   display: flex;
   justify-content: right;
