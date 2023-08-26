@@ -23,8 +23,8 @@ const plantRoutes = require("./routes/plantRoutes");
 const folderRoutes = require("./routes/foldersRoutes");
 const favoritesRoutes = require("./routes/favoritesRoutes");
 
-// const seedPlant = require('./seeds/seedPlant')
-// seedPlant.seedPlant()
+const seedPlant = require('./seeds/seedPlant')
+seedPlant.seedPlant()
 
 // const seedFavorite = require('./seeds/seedFavorite')
 // seedFavorite.seedFavorite()

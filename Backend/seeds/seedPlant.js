@@ -4,7 +4,7 @@ const data = [
   {
     name: "Bougainvillea",
     description: "flowering, woody vine-like shrub",
-    image: "",
+    image: "https://www.logees.com/media/catalog/product/cache/088d41982d5ddfc4a0a1e449b5ddd946/R/1/R1083-2-large.jpg",
     type: "shrub",
     sunExposure: ["full sun"],
     season: ["Fall"],
@@ -20,7 +20,7 @@ const data = [
   {
     name: "Sunshine Ligustrum",
     description: "Evergreen shrub with year round golden foliage",
-    image: "",
+    image: "https://parkseed.com/images/xxl/29159.webp?v=0-2",
     type: "shrub",
     sunExposure: ["6-12", "full sun"],
     season: ["spring", "fall"],
@@ -36,7 +36,7 @@ const data = [
   {
     name: "Magnolia",
     description: "evergreen leaves with seasonal blooming",
-    image: "",
+    image: "https://media.istockphoto.com/id/484051032/photo/white-southern-magnolia-flower-in-bloom-on-tree-atlanta-georgia.jpg?s=612x612&w=0&k=20&c=7CLnRfS05S5tYeI2t4D-6yT-YtAphs5i3bA3y1HxIwM=",
     type: "tree",
     sunExposure:[ "full sun"],
     season: ["summer"],
