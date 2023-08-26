@@ -31,8 +31,8 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            Plant Assist 
-            <i className='fa-brands fa-pagelines' />
+            Home
+            {/* <i className='fa-brands fa-pagelines' /> */}
           </Link>
           <div className='menu-icon' onClick={handleClick}>
             <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -45,13 +45,13 @@ function Navbar() {
             </li>
         
             <li className='nav-item'>
-              <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-                Home
+              <Link to='/profile' className='nav-links' onClick={closeMobileMenu}>
+                Profile
               </Link>
             </li>
             <li className='nav-item'>
               <Link
-                to='/explore'
+                to='/plants'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >

@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./Login.css";
-// import { useNavigate } from "react-router-dom";
+import "../styles/Login.css";
+import { useNavigate } from "react-router-dom";
 // import Register from "./Register";
 
 const Login = () => {
   const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-// let navigate = useNavigate()
+let navigate = useNavigate()
 
 const handleSubmit = (e) => {
   e.preventDefault();
@@ -19,7 +19,8 @@ const handleSubmit = (e) => {
   };
   console.log(data);
 
-  fetch("http://localhost8080/api/auth/login", {
+  // useEffect(() => {
+  fetch("http://localhost:8080/api/auth/login", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -29,13 +30,19 @@ const handleSubmit = (e) => {
   .then((response) => response.json())
   .then((json) => {
     console.log(json);
-    if (json.success) {
-      sessionStorage.setItem("authenticated", json.success);
-      sessionStorage.setItem("id", json.data[0].id);
-    } else {
-      setError(json.message);
+    if(json.success){
+      //if response success = true
+      sessionStorage.setItem('authenticated', json.success);
+      sessionStorage.setItem('id', json.data[0].id);
+      navigate('/plants')
+    }else{
+      alert("Wrong username/password."); // error conditional statement down below wasn't working, so added alert
+      setError(json.message)
     }
-  });
+  }) 
+  // });
+  
+  
 };
 
   return (
@@ -59,17 +66,18 @@ const handleSubmit = (e) => {
             <div className="pass">
               <label htmlFor="password">password</label>
               <input
-                value={pass}
-                onChange={(e) => setPass(e.target.value)}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 placeholder="********"
                 id="password"
                 name="password"
               />
+              {/* {error ? (<div>{error}</div>) : null} */}
               <div className="btn-login">
-                <Link to="/zone">
+              
                 <button><b>Login</b></button>
-                </Link>
+              
               </div>
             </div>
           </div>
@@ -79,9 +87,10 @@ const handleSubmit = (e) => {
               <button><b>Sign Up for Free!</b></button>
             </Link>
           </div>
+          
         </form>
       </div>
-      {/* {error ? (<div color="red">{error}</div>) : null} */}
+      
     </>
   );
 };

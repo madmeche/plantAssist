@@ -2,6 +2,7 @@ import React from "react";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
+import Logout from "./pages/Logout";
 // import AboutUs from "./pages/AboutUs";
 //   const [click, setClick] = useState(false);
 
@@ -30,6 +31,16 @@ function Footer() {
           <div className="footer-link-items">
             <Link to="/">Logout</Link>
           </div>
+
+
+
+          {/* <div className="footer-link-items">
+            <Link>
+            <button onClick={<Logout/>}>Logout</button></Link>
+          </div> */}
+
+
+         
         
       </div>
  

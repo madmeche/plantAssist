@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-import "./Register.css";
+import '../styles/Register.css'
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +20,7 @@ const Register = () => {
     };
     console.log(data);
   
-    fetch("http://localhost8080/api/auth/signup", {
+    fetch("http://localhost:8080/api/auth/signup", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
