@@ -33,7 +33,7 @@ function Navbar() {
           <div className='navbar-menu-container'>
           <div className='navbar-menu-icon'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            Home
+            Foliage Finder
             {/* <i className='fa-brands fa-pagelines' /> */}
           </Link>
           </div>

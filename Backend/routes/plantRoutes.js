@@ -19,6 +19,12 @@ router.get("/:id", (req, res) => {
   Controllers.plantController.getPlantById(req, res)
 })
 
+// localhost:8080/api/plant/list
+router.post("/list", (req, res) => {
+  // console.log("Router:", req.body)
+Controllers.plantController.getPlantsByIds(req, res)
+})
+
 // localhost:8080/api/plant/create
 router.post("/create", (req, res) => {
   Controllers.plantController.createPlant(req.body, res)

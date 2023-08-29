@@ -99,6 +99,7 @@
 .navbar-menu-icon {
   /* outline: black solid; */
   display: flex;
+  width: 25vw;
   justify-content: center;
   font-size: 30px;
   top: 0;

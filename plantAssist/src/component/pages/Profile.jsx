@@ -9,18 +9,8 @@ const Profile = () => {
         <>
         <div className='header'>
         <h1>Welcome</h1>
-        <h3>Folders</h3>
+        <h3>Folders</h3> // create input to create folders -- then link image to folder button.
 
-        {/* <div> */}
-        {/* {pages.map((page) => (
-                <div key={page} onClick={handleCloseNavMenu}>
-                  <Link to={page}>
-                    <Typography textAlign="center" sx={{textTransform: 'capitalize'}}>{page}</Typography>
-                  </Link> */}
-
-        {/* </div>
-))}
-        </div> */}
         </div>
         </>
     )

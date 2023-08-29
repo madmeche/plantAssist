@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/homeStyle.css";
 // Go to setting to access profile page.
@@ -9,6 +9,8 @@ function Home() {
   const [selectedOption1, setSelectedOption1] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
   const [selectedOption3, setSelectedOption3] = useState("");
+  const [data, setData] = useState([]);
+  const [plant, setPlant] = useState([]);
 
   const options0 = [
     { value: "" },
@@ -60,9 +62,31 @@ function Home() {
     { value: null, label: "Any" },
   ];
 
+  useEffect(() => {
+    fetch("http://localhost:8080/api/plant")
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("Response", json.data);
+        setData(json.data);
+      });
+  }, []);
+  
+
+  // const handleFilterPlant = (name) => {
+    
+  //   let filterPlant = plant.filter((name) => {
+  //     let splitCat = cats.latinName.split(' ')
+  //         console.log(splitCat) 
+  //         //[0] must = latinName 
+  //         if ( [0] !== name ) 
+  //         return cats
+  //   }); 
+  // };
+  // }
   return (
     <>
       <div className="list">
+        <div className="upper-container">
       <div className="list-container">
           <p>
             <strong>Zone: {selectedOption0}</strong>
@@ -71,7 +95,7 @@ function Home() {
             <select
               className="list-container-opt"
               value={selectedOption0}
-              onChange={(e) => setSelectedOption1(e.target.value)}
+              onChange={(e) => setSelectedOption0(e.target.value)}
             >
               {options0.map((option) => (
                 <option key={option.value} value={option.value}>
@@ -99,7 +123,9 @@ function Home() {
             </select>
           </div>
         </div>
-
+        </div>
+        
+        <div className="upper-container">
         <div className="list-container">
           <p>
             <strong>Categories: {selectedOption2}</strong>
@@ -136,11 +162,13 @@ function Home() {
               ))}
             </select>
           </div>
-          <div className="btn-container">
-            <button className="list-button">Search</button>
           </div>
+
         </div>
       </div>
+      <div className="btn-container">
+            <button className="list-button">Search</button>
+          </div>
     </>
   );
 }

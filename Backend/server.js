@@ -59,7 +59,7 @@ app.use(cors(corsOptions))
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/plant", plantRoutes);
-app.use("/api/folder", folderRoutes);
+app.use("/api/folders", folderRoutes);
 app.use("/api/favorites", favoritesRoutes);
 
 app.get("/", (req, res) => {

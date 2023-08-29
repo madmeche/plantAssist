@@ -17,7 +17,7 @@ const getFavorite = (res) => {
 
 const getFavoriteById = (req, res) => {
   Models.Favorite.findAll({
-    where: { hero_id: req.params.id },
+    where: { id: req.params.id },
   })
     .then(function (data) {
       res.send({ result: 200, data: data });
@@ -27,6 +27,8 @@ const getFavoriteById = (req, res) => {
       throw err;
     });
 };
+
+
 
 const createFavorite = (data, res) => {
   Models.Favorite.create(data)
@@ -55,7 +57,7 @@ const updateFavorite = (req, res) => {
           throw err;
         });
     }else{
-      res.status(404).json({success: false, message: "Favorite ID not found"})
+      res.statusCode(404).json({success: false, message: "Favorite ID not found"})
     }
   });
 };

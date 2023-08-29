@@ -43,11 +43,7 @@ User.init(
       allowNull: false,
       required: true,
     },
-    // PLURAL WILL CONTAIN A JSON OBJECT OF PLANTS IDS
-    plantIds: {
-      type: DataTypes.JSON,
-     
-    },
+   
     //PLURAL WILL CONTAIN A JOSN OBJECT OF FOLDER IDS
     folderId: {
       type: DataTypes.JSON,

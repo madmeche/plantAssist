@@ -14,9 +14,16 @@ router.post("/create", (req, res) => {
 })
 
 // localhost:8080/api/favorites/:<user_id>
+router.get('/:id', (req, res) => {
+  Controllers.favoriteController.getFavoriteById(req, res)
+})
+
+// localhost:8080/api/favorites/:<user_id>
 router.put('/:id', (req, res) => {
   Controllers.favoriteController.updateFavorite(req, res)
 })
+
+
 
 // localhost:8080/api/favorites/<user_id>  
 router.delete('/:id', (req, res) => {

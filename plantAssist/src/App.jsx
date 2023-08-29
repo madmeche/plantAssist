@@ -12,21 +12,21 @@ import Favorites from "./component/pages/Favorites";
 import Profile from "./component/pages/Profile";
 import AboutUs from "./component/pages/AboutUs";
 import Logout from "./component/pages/Logout";
-
+import Folders from "./component/pages/Folders"
 
 function App() {
   // const [currentForm, setCurrentForm] = useState('login')
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:8080/api/plant/")
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json)
-        setData(json.data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/api/plant/")
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       console.log(json)
+  //       setData(json.data);
+  //     });
+  // }, []);
 
   return (
     <>
@@ -41,6 +41,7 @@ function App() {
           <Route path='/plants' element={<PlantList />} />
           <Route path='/zone' element={<Zone />} />
           <Route path='/favorites' element={<Favorites/>} />
+          <Route path='/folders' element={<Folders/>} />
           <Route path='/aboutus' element={<AboutUs/>} />
           <Route path='/logout' element={<Logout/>} />
         </Routes>
