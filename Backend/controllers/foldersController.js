@@ -1,7 +1,7 @@
 const Models = require('../models')
 
-const getFolder = (res) => {
-  Models.Folder.findAll({})
+const getFolders = (res) => {
+  Models.Folders.findAll({})
     .then((data) => {
       // Do NOT return passwords
       // Remove the password key before returning
@@ -17,9 +17,9 @@ const getFolder = (res) => {
     })
 }
 
-const createFolder = async (data, res) => {
+const createFolders = async (data, res) => {
     
-    Models.Folder.create(data)
+    Models.Folders.create(data)
    
       .then((data) => {
         res.status(201).json({result: 201, data: data})
@@ -29,10 +29,23 @@ const createFolder = async (data, res) => {
         throw err
       })
   }
+
+  const getFoldersById = (req, res) => {
+    Models.Folders.findAll({
+      where: { id: req.params.id },
+    })
+      .then(function (data) {
+        res.send({ result: 200, data: data });
+      })
+      .catch((err) => {
+        console.log("Error: ", err);
+        throw err;
+      });
+  };
   
-  const updateFolder = (req, res) => {
+  const updateFolders = (req, res) => {
     console.log("Controller:", req.body)
-    Models.Folder.update(req.body, { where: {id: req.params.id}})
+    Models.Folders.update(req.body, { where: {id: req.params.id}})
       .then((data) => {
         res.send({result: 201, data: data})
       })
@@ -42,9 +55,9 @@ const createFolder = async (data, res) => {
       })
   }
   
-  const deleteFolder = (req, res) => {
+  const deleteFolders = (req, res) => {
     console.log("Controller:", req.body)
-    Models.Folder.destroy( {where: {id: req.params.id}})
+    Models.Folders.destroy( {where: {id: req.params.id}})
       .then((data) => {
         res.send({result: 201, data: data})
       })
@@ -55,6 +68,6 @@ const createFolder = async (data, res) => {
   }
   
   module.exports = {
-    getFolder, createFolder, updateFolder, deleteFolder
+    getFolders, getFoldersById, createFolders, updateFolders, deleteFolders
   }
 

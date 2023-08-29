@@ -62,14 +62,14 @@ function Home() {
     { value: null, label: "Any" },
   ];
 
-  useEffect(() => {
-    fetch("http://localhost:8080/api/plant")
-      .then((response) => response.json())
-      .then((json) => {
-        console.log("Response", json.data);
-        setData(json.data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/api/plant")
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       console.log("Response", json.data);
+  //       setData(json.data);
+  //     });
+  // }, []);
   
 
   // const handleFilterPlant = (name) => {

@@ -7,6 +7,11 @@ router.get("/", (req, res) => {
   Controllers.foldersController.getFolder(res)
 })
 
+// localhost:8080/api/folderss/:<user_id>
+router.get('/:id', (req, res) => {
+  Controllers.foldersController.getFolderById(req, res)
+})
+
 // localhost:8080/api/folders/create
 router.post("/create", (req, res) => {
   Controllers.foldersController.createFolder(req.body, res)

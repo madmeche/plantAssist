@@ -7,18 +7,18 @@ router.get("/", (req, res) => {
   Controllers.recentController.getRecent(res)
 })
 
-// localhost:8080/api/users/create
+// localhost:8080/api/recent/create
 router.post("/create", (req, res) => {
   Controllers.recentController.createRecent(req.body, res)
   
 })
 
-// localhost:8080/api/users/:<user_id>
+// localhost:8080/api/recent/:<user_id>
 router.put('/:id', (req, res) => {
-  Controllers.recentController.updateRecents(req, res)
+  Controllers.recentController.updateRecent(req, res)
 })
 
-// localhost:8080/api/users/<user_id>  
+// localhost:8080/api/recent/:<user_id>  
 router.delete('/:id', (req, res) => {
   Controllers.recentController.deleteRecent(req, res)
 })

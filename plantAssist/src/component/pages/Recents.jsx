@@ -32,7 +32,7 @@ function Favorites() {
 
   return (
     <>
-      <h1>Favorites</h1>
+      <h1>Recents</h1>
       <div>
         {plants.map((plant) => (
           <PlantCard key={plant.id} plant={plant} />

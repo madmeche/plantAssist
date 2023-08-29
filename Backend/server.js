@@ -20,11 +20,12 @@ let dbconnect = require("./dbConnect");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const plantRoutes = require("./routes/plantRoutes");
-const folderRoutes = require("./routes/foldersRoutes");
+const recentRoutes = require("./routes/recentRoutes")
 const favoritesRoutes = require("./routes/favoritesRoutes");
+const foldersRoutes = require("./routes/recentRoutes");
 
-const seedPlant = require('./seeds/seedPlant')
-seedPlant.seedPlant()
+// const seedPlant = require('./seeds/seedPlant')
+// seedPlant.seedPlant()
 
 // const seedFavorite = require('./seeds/seedFavorite')
 // seedFavorite.seedFavorite()
@@ -59,7 +60,8 @@ app.use(cors(corsOptions))
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/plant", plantRoutes);
-app.use("/api/folders", folderRoutes);
+app.use("/api/folders", foldersRoutes);
+app.use("/api/recents", recentRoutes);
 app.use("/api/favorites", favoritesRoutes);
 
 app.get("/", (req, res) => {

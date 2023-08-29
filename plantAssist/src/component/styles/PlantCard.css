@@ -1,19 +1,30 @@
-/* *,
-*::before *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
-
 .body {
-  margin: 2rem;
-  display: grid;
+  top: 0; /* Start at the top of the viewport */
+  left: 0; /* Start at the left of the viewport */
+  right: 0; /* Extend to the right end of the viewport */
+  bottom: 0; /* Extend to the bottom end of the viewport */
+  display: flex;
+  padding: 30px;
   grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+  position: static;
   outline: black solid;
+}
+
+.card-container {
+  width: 40vw;
+  height:40vh;
+}
+
+.card-body-container{
+  width: 100vw;
+  height: 10vh;
 }
 
 .card {
   display: grid;
+  width: 50vw;
+  height: 50vh;
   grid-template-columns: repeat(2, 1fr);
   overflow: hidden;
   box-shadow: 0 2px 20px gainsboro;
@@ -46,6 +57,7 @@
 
 .card-description {
   outline: green solid;
+  position: absolute;
   padding: 1rem;
   display: flex;
   /* position: sticky; */
@@ -66,6 +78,8 @@
 .button-box{
   display: flex;
   justify-content: right;
+  bottom: 0;
+  position: absolute;
 }
 
 .card-button {

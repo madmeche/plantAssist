@@ -44,27 +44,27 @@ function PlantCard(props) {
   };
 
 const styles = {
-    backgroundImage: `url(${plant.image})`, 
-    // width:'30vw', 
-    // height:'50vh', 
-    margin: '10px'
+    backgroundImage: `url(${plant.image})`,
+    justifyContent: "center",
+    height: '60vh',
 }
 
   return (
-  
-<div className="body">
+  <div className="body">
+<div className="card-container">
     <div className="card">
     <div style={styles}>
       <div className="card-title">Name: {plant.name}</div>
-      <div className="card-description">Description: {plant.description}</div>
-      <div className="card-img">Image: {plant.image}</div>
-      <div className="button-box">
+      <div className="card-body-container">
+        <div className="card-description">Description: {plant.description}</div>
+       <div className="button-box"> 
       <button className="card-button"onClick={handleFavorite}>💚</button>
-      <button className="folder-button"onClick={handleAddFolder}>➕</button> 
+      <button className="folder-button"onClick={handleAddFolder}>➕</button>  </div>
+      </div>
       {/* need an input to create folder names */}
-</div>
    </div> 
    </div>
+    </div>
     </div>
     
   );

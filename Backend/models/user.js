@@ -45,6 +45,12 @@ User.init(
     },
    
     //PLURAL WILL CONTAIN A JOSN OBJECT OF FOLDER IDS
+    foldersId: {
+      type: DataTypes.JSON,
+  
+    },
+
+    //PLURAL WILL CONTAIN A JOSN OBJECT OF FOLDER IDS
     folderId: {
       type: DataTypes.JSON,
   

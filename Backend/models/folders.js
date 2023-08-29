@@ -4,9 +4,9 @@ let dbConnect = require("../dbConnect");
 
 const sequelizeInstance = dbConnect.Sequelize;
 
-class Folder extends Model {}
+class Folders extends Model {}
 
-Folder.init(
+Folders.init(
 // const newFolder = new Schema(
   {
     id: {
@@ -21,6 +21,9 @@ Folder.init(
       maxlength: [10, "Title can not be more than 25 characters"],
       minlength: [3, "Title must have atleast three character"],
     },
+    folderId: {
+      type: DataTypes.JSON,
+    },
 
     plantIds: {
       type: DataTypes.JSON,
@@ -33,4 +36,4 @@ Folder.init(
   }
 );
 
-module.exports = Folder;
+module.exports = Folders;

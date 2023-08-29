@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import PlantCard from "./PlantCard";
+import '../styles/Plant.css'
 
 function PlantList() {
   const [data, setData] = useState([]);
 
-  const handleFavorite = () => {};
 
   useEffect(() => {
     fetch("http://localhost:8080/api/plant")
@@ -16,10 +16,10 @@ function PlantList() {
   }, []);
 
   return (
-    <div>
-      <h1 className="text-center">Plant List</h1>
-      <div className="table table-striped text-center mt-5">
-        <div>
+    <div className="card-list-container">
+      <h1 className="list-body">Plant List</h1>
+      <div>
+        <div className="list-list">
           {data.map((plant) => (
             <PlantCard key={plant.id} plant={plant} />
           ))}

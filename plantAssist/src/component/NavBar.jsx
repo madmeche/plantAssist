@@ -29,9 +29,13 @@ function Navbar() {
   return (
     <>
       <nav className='navbar'>
+      <img src='https://www.svgheart.com/wp-content/uploads/2023/03/sunflower_418-430-min.png' />
         <div className='navbar-container'>
+        {/* <img src='https://www.svgheart.com/wp-content/uploads/2023/03/sunflower_418-430-min.png'  /> */}
           <div className='navbar-menu-container'>
+          {/* <img src='https://www.svgheart.com/wp-content/uploads/2023/03/sunflower_418-430-min.png' /> */}
           <div className='navbar-menu-icon'>
+            {/* <img src='https://www.svgheart.com/wp-content/uploads/2023/03/sunflower_418-430-min.png' /> */}
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
             Foliage Finder
             {/* <i className='fa-brands fa-pagelines' /> */}

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Register.css";
 
 const Register = () => {
@@ -8,6 +8,9 @@ const Register = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
+  const [error, setError] = useState("");
+
+  let navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,8 +33,17 @@ const Register = () => {
       .then((response) => response.json())
       .then((json) => {
         console.log("response: ", json.success);
+        if(json.success){
+          navigate('/login')
+        }else {
+          alert("Please try again.");
+          setError(json.message)
+        }
       });
   };
+
+
+  
 
   return (
     <>
