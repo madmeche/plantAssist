@@ -5,7 +5,7 @@ function Favorites() {
   const [plants, setPlants] = useState([]);
 
   useEffect(() => {
-    const userId = sessionStorage.getItem("id"); //tried adding JSON.stringify
+    const userId = sessionStorage.getItem("id"); 
     fetch(`http://localhost:8080/api/favorites/${userId}`)
       .then((response) => response.json())
       .then((json) => {

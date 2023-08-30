@@ -13,6 +13,19 @@ const getRecent = (res) => {
     })
 }
 
+const getRecentById = (req, res) => {
+  Models.Recent.findAll({
+    where: { id: req.params.id },
+  })
+    .then(function (data) {
+      res.send({ result: 200, data: data });
+    })
+    .catch((err) => {
+      console.log("Error: ", err);
+      throw err;
+    });
+};
+
 const createRecent = async (data, res) => {
     
     Models.Recent.create(data)
@@ -51,6 +64,6 @@ const createRecent = async (data, res) => {
   }
   
   module.exports = {
-    getRecent, createRecent, updateRecent, deleteRecent
+    getRecent, getRecentById, createRecent, updateRecent, deleteRecent
   }
 

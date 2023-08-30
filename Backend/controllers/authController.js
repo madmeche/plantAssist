@@ -24,27 +24,22 @@ const signUpUser = async (data, res) => {
       // We NEVER want to send the hashed password back, EVER
       // Reset the password back to the originalPassword before returning
       data.password = originalPassword;
+
       Models.Favorite.create({
         id: data.id,
         plantIds: [],
       }),
         Models.User.update({ favoriteId: data.id }, { where: { id: data.id } }),
         res.status(201).send({ success: true, data: data });
-
-      // Models.Recent.create({
-      //   id: data.id,
-      //   plantIds: [],
-      // }),
-      //   Models.User.update({ recentId: data.id }, { where: { id: data.id } }),
-      //   res.status(201).send({ success: true, data: data });
-
-      // Models.Folders.create({
-      //   id: data.id,
-      //   plantIds: [],
-      // }),
-      //   Models.User.update({ foldersId: data.id }, { where: { id: data.id } }),
-      //   res.status(201).send({ success: true, data: data });
     })
+  //   .then((data) => {
+  //   Models.Recent.create({
+  //     id: data.id,
+  //     plantIds: [],
+  //   }),
+  //   Models.User.update({ recentId: data.id }, { where: { id: data.id } }),
+  //   res.status(201).send({ success: true, data: data });
+  // })
     .catch((err) => {
       console.log("Error:", err);
       throw err;
