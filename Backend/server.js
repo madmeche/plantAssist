@@ -5,18 +5,6 @@ require("dotenv").config();
 
 let dbconnect = require("./dbConnect");
 
-// const Models = require("./models");
-// // const Seeds = require('./seeds');
-
-// async function init() {
-//   await Models.User.sync();
-//   await Models.Plant.sync();
-//   await Models.Folder.sync();
-//   await Models.Favorite.sync();
-//   await Models.Recent.sync();
-// }
-// init();
-
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const plantRoutes = require("./routes/plantRoutes");
@@ -24,11 +12,11 @@ const recentRoutes = require("./routes/recentRoutes")
 const favoritesRoutes = require("./routes/favoritesRoutes");
 const foldersRoutes = require("./routes/recentRoutes");
 
-// const seedPlant = require('./seeds/seedPlant')
-// seedPlant.seedPlant()
+const seedPlant = require('./seeds/seedPlant')
+seedPlant.seedPlant()
 
-// const seedFavorite = require('./seeds/seedFavorite')
-// seedFavorite.seedFavorite()
+// const seedUser = require('./seeds/seedUser')
+// seedUser.seedUsers()
 
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");

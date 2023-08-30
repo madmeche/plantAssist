@@ -37,19 +37,19 @@ const signUpUser = async (data, res) => {
       throw err;
     });
 
-    Models.User.create(data)
-    .then((data) => {
-    Models.Recent.create({
-      id: data.id,
-      plantIds: [],
-    }),
-    Models.User.update({ recentId: data.id }, { where: { id: data.id } }),
-    res.status(201).send({ success: true, data: data });
-  })
-  .catch((err) => {
-    console.log("Error:", err);
-    throw err;
-  });
+//     Models.User.create(data)
+//     .then((data) => {
+//     Models.Recent.create({
+//       id: data.id,
+//       plantIds: [],
+//     }),
+//     Models.User.update({ recentId: data.id }, { where: { id: data.id } }),
+//     res.status(201).send({ success: true, data: data });
+//   })
+//   .catch((err) => {
+//     console.log("Error:", err);
+//     throw err;
+//   });
 
 };
 

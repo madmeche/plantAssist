@@ -1,6 +1,5 @@
 import React from "react";
-import '../styles/PlantCard.css'
-
+import "../styles/PlantCard.css";
 
 function PlantCard(props) {
   const { plant } = props;
@@ -9,14 +8,14 @@ function PlantCard(props) {
     console.log(plant.id);
     const userId = sessionStorage.getItem("id");
     const data = {
-        plantId: plant.id
-    }
+      plantId: plant.id,
+    };
     fetch(`http://localhost:8080/api/favorites/${userId}`, {
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",      
-          },
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
     })
       .then((response) => response.json())
       .then((json) => {
@@ -28,14 +27,14 @@ function PlantCard(props) {
     console.log(plant.id);
     const userId = sessionStorage.getItem("id");
     const data = {
-        plantId: plant.id
-    }
+      plantId: plant.id,
+    };
     fetch(`http://localhost:8080/api/folders/${userId}`, {
-        method: "PUT",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-type": "application/json; charset=UTF-8",      
-          },
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
     })
       .then((response) => response.json())
       .then((json) => {
@@ -43,30 +42,27 @@ function PlantCard(props) {
       });
   };
 
-const styles = {
+  const styles = {
     backgroundImage: `url(${plant.image})`,
+    backgroundSize: "cover",
     justifyContent: "center",
-    height: '60vh',
-}
+    width: "50vh",
+    height: "50vh"
+  };
 
   return (
-  <div className="body">
-<div className="card-container">
-    <div className="card">
-    <div style={styles}>
-      <div className="card-title">Name: {plant.name}</div>
-      <div className="card-body-container">
-        <div className="card-description">Description: {plant.description}</div>
-       <div className="button-box"> 
-      <button className="card-button"onClick={handleFavorite}>💚</button>
-      <button className="folder-button"onClick={handleAddFolder}>➕</button>  </div>
+    <div className="body">
+      <div style={styles}>
+        Name: {plant.name}
+        Description: {plant.description}
+        <button className="card-button" onClick={handleFavorite}>
+          💚
+        </button>
+        <button className="folder-button" onClick={handleAddFolder}>
+          ➕
+        </button>
       </div>
-      {/* need an input to create folder names */}
-   </div> 
-   </div>
     </div>
-    </div>
-    
   );
 }
 export default PlantCard;

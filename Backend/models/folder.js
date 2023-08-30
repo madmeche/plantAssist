@@ -28,7 +28,7 @@ Folder.init(
   },
   {
     sequelize: sequelizeInstance,
-    modelName: "folders",
+    modelName: "folder",
     timestamps: true,
   }
 );

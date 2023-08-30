@@ -1,17 +1,16 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  /* box-sizing: border-box; */
+  /* margin: 0; */
   /* font-family: 'PT Sans', sans-serif; */
-  font-family: 'roboto', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .body {
   position: relative;
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
   height: auto;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
 
