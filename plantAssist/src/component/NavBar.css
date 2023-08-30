@@ -9,8 +9,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  text-align: right;
-  align-items: end;
+  text-align: center;
+  align-items: center;
   font-size: 2rem;
   position: fixed;
   top: 0;

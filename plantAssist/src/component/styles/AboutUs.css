@@ -6,7 +6,7 @@
 }
 
 .au-header{
-    outline: white solid 5px;
+    /* outline: white solid 5px; */
     margin-top: 200px;
     color:rgb(68, 43, 10);
     display: flex;
@@ -18,7 +18,7 @@
     display: flex;
     text-align: center;
     /* justify-content: center; */
-    width: 80vw;
+
 }
 
  

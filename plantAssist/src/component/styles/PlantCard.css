@@ -1,14 +1,13 @@
-.body {
-  top: 0; /* Start at the top of the viewport */
-  left: 0; /* Start at the left of the viewport */
-  right: 0; /* Extend to the right end of the viewport */
-  bottom: 0; /* Extend to the bottom end of the viewport */
-  display: flex;
-  padding: 30px;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
+.body{
   position: static;
+  margin:0;
   outline: black solid;
+  display: grid;
+  grid: repeat(2,1fr);
+}
+
+.list-list{
+  width: 100vw
 }
 
 .card-container {

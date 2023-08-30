@@ -17,7 +17,7 @@ function PlantList() {
 
   return (
     <div className="card-list-container">
-      <h1 className="list-body">Plant List</h1>
+      <div className="list-body">Plant List</div>
       <div>
         <div className="list-list">
           {data.map((plant) => (

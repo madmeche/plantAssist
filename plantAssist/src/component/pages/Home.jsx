@@ -62,27 +62,30 @@ function Home() {
     { value: null, label: "Any" },
   ];
 
-  // useEffect(() => {
-  //   fetch("http://localhost:8080/api/plant")
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       console.log("Response", json.data);
-  //       setData(json.data);
-  //     });
-  // }, []);
+  
+  useEffect(() => {
+    const findPlant = plant.map((plant) => (
+      <PlantCard key={plant.id} plant={plant} />))
+    fetch("http://localhost:8080/api/plant")
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("Response", json.data);
+        setData(json.data);
+      });
+  }, []);
   
 
-  // const handleFilterPlant = (name) => {
+  const handleFilterPlant = (findPlant) => {
     
-  //   let filterPlant = plant.filter((name) => {
-  //     let splitCat = cats.latinName.split(' ')
-  //         console.log(splitCat) 
-  //         //[0] must = latinName 
-  //         if ( [0] !== name ) 
-  //         return cats
-  //   }); 
-  // };
-  // }
+    let filterPlant = plant.filter((findPlant) => {
+      let splitplant = plant.name.split(' ')
+          console.log(splitplant) 
+          //[0] must = name 
+          if ( [0] !== name ) 
+          return plant
+    }); 
+  };
+  
   return (
     <>
       <div className="list">
@@ -167,7 +170,12 @@ function Home() {
         </div>
       </div>
       <div className="btn-container">
-            <button className="list-button">Search</button>
+      <div>
+        {plant.map((plant) => (
+          <PlantCard key={plant.id} plant={plant} />
+        ))}
+      </div>
+            <button className="list-button" onClick={handleFilterPlant}>Search</button>
           </div>
     </>
   );

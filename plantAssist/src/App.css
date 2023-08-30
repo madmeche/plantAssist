@@ -7,10 +7,10 @@
 
 .body {
   position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  height: auto;
-  display: grid;
+  margin: 0;
+  /* width: 100vw;
+  min-height: 100vh; */
+  /* display: grid; */
   justify-content: center;
   align-items: center;
 
