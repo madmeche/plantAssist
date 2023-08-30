@@ -13,6 +13,7 @@ import Profile from "./component/pages/Profile";
 import AboutUs from "./component/pages/AboutUs";
 import Logout from "./component/pages/Logout";
 import Folders from "./component/pages/Folders"
+import Recents from "./component/pages/Recents"
 
 function App() {
   // const [currentForm, setCurrentForm] = useState('login')
@@ -44,6 +45,7 @@ function App() {
           <Route path='/folders' element={<Folders/>} />
           <Route path='/aboutus' element={<AboutUs/>} />
           <Route path='/logout' element={<Logout/>} />
+          <Route path='recents' element={<Recents />} />
         </Routes>
    
     </>

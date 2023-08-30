@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 
-function Favorites() {
+function Recents() {
   const [plants, setPlants] = useState([]);
 
   useEffect(() => {
     const userId = sessionStorage.getItem("id"); //tried adding JSON.stringify
-    fetch(`http://localhost:8080/api/favorites/${userId}`)
+    fetch(`http://localhost:8080/api/recents/${userId}`)
       .then((response) => response.json())
       .then((json) => {
         console.log("response:", json);
@@ -42,4 +42,4 @@ function Favorites() {
   );
 }
 
-export default Favorites;
+export default Recents;
