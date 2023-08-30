@@ -81,7 +81,18 @@ function Home() {
       let splitplant = plant.name.split(' ')
           console.log(splitplant) 
           //[0] must = name 
-          if ( [0] !== name ) 
+          if ( [0] !== findPlant ) 
+          return plant
+    }); 
+  };
+
+  const handleFilterbySunExposure = (sunExposure) => {
+    
+    let filterSunExposure = plant.filter((sunExposure) => {
+      let splitplant = plant.name.split(' ')
+          console.log(splitplant) 
+          //[0] must = name 
+          if ( [0] !== sunExposure ) 
           return plant
     }); 
   };
