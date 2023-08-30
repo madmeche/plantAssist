@@ -7,6 +7,11 @@ router.get("/", (req, res) => {
   Controllers.recentController.getRecent(res)
 })
 
+// localhost:8080/api/recent/:<user_id>
+router.get('/:id', (req, res) => {
+  Controllers.recentController.getRecentById(req, res)
+})
+
 // localhost:8080/api/recent/create
 router.post("/create", (req, res) => {
   Controllers.recentController.createRecent(req.body, res)
