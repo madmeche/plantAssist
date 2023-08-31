@@ -1,16 +1,17 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { PlantDataContext } from "../../PlantDataContext";
 import { Link } from "react-router-dom";
 import "../styles/homeStyle.css";
 // Go to setting to access profile page.
 
 function Home() {
+  const plantContext = useContext(PlantDataContext);
+
   const [selectedOption0, setSelectedOption0] = useState("");
   const [selectedOption1, setSelectedOption1] = useState("");
   const [selectedOption2, setSelectedOption2] = useState("");
   const [selectedOption3, setSelectedOption3] = useState("");
-  const [data, setData] = useState([]);
-  const [plant, setPlant] = useState([]);
 
   const options0 = [
     { value: "" },
@@ -62,133 +63,159 @@ function Home() {
     { value: null, label: "Any" },
   ];
 
-  
-  // useEffect(() => {
-  //   const findPlant = plant.map((plant) => (
-  //     <PlantCard key={plant.id} plant={plant} />))
-  //   fetch("http://localhost:8080/api/plant")
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       console.log("Response", json.data);
-  //       setData(json.data);
-  //     });
-  // }, []);
-  
+  const [data, setData] = useState([]);
+  const [plant, setPlant] = useState([]); //movies, setMovies
 
-  // const handleFilterPlant = (findPlant) => {
-    
-  //   let filterPlant = plant.filter((findPlant) => {
-  //     let splitplant = plant.name.split(' ')
-  //         console.log(splitplant) 
-  //         //[0] must = name 
-  //         if ( [0] !== findPlant ) 
-  //         return plant
-  //   }); 
-  // };
+  // const [zone, setZone] = useState("");
+  const [sunExposure, setSunExposure] = useState(""); //filter1
+  // const [categories, setCategories] = useState("");
+  // const [season, setSeason] = useState("");
 
-  // const handleFilterbySunExposure = (sunExposure) => {
-    
-  //   let filterSunExposure = plant.filter((sunExposure) => {
-  //     let splitplant = plant.name.split(' ')
-  //         console.log(splitplant) 
-  //         //[0] must = name 
-  //         if ( [0] !== sunExposure ) 
-  //         return plant
-  //   }); 
-  // };
-  
+  const handleFilterbySunExposure = (e) => {
+    //handlefilterchange1
+    e.preventDefault();
+    console.log(e.target.value);
+    setSunExposure(e.target.value);
+  };
+
+  const handleFilter = () => {
+    const filteredPlants = plant.filter((plant) => {
+      const filter = {
+        bySunExposure: true,
+      };
+
+      if (sunExposure) {
+        filter.bySunExposure = plant.sunExposure.includes(sunExposure); //sets as boolean
+      }
+      //return filter.byName && filter.image;
+      return Object.values(filter).every((val) => val === false || !!val); // reference: "upmostly.com"
+    });
+    setPlant(filteredPlants);
+    console.log(sunExposure, filteredPlants);
+    console.log("filtered plants:", filteredPlants);
+    //     setData([...filteredPlants])
+
+    const clearFilters = () => {
+      //reset the movies list to the original
+      setPlant(plant);
+    };
+
+    useEffect(() => {
+      fetch("http://localhost:8080/api/plant/")
+        .then((response) => response.json())
+        .then((json) => {
+          setPlant(json.data);
+        });
+      setPlant(plant);
+    }, []);
+
+    //   let filterSunExposure = plant.filter((sunExposure) => {
+    //     let splitplant = plant.name.split(' ')
+    //         console.log(splitplant)
+    //         //[0] must = name
+    //         if ( [0] !== sunExposure )
+    //         return plant
+    //   });
+  };
+
   return (
     <>
       <div className="list">
         <div className="upper-container">
-      <div className="list-container">
-          <p>
-            <strong>Zone: {selectedOption0}</strong>
-          </p>
-          <div className="list-containter-tog">
-            <select
-              className="list-container-opt"
-              value={selectedOption0}
-              onChange={(e) => setSelectedOption0(e.target.value)}
-            >
-              {options0.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
+          <div className="list-container">
+            <p>
+              <strong>Zone: {selectedOption0}</strong>
+            </p>
+            <div className="list-containter-tog">
+              <select
+                className="list-container-opt"
+                value={selectedOption0}
+                onChange={(e) => setSelectedOption0(e.target.value)}
+              >
+                {options0.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+          <div className="list-container">
+            <p>
+              <strong>Sun Exposure: {selectedOption1}</strong>
+            </p>
+            <div 
+            className="list-containter-tog">
+
+              <select value={sunExposure} onChange={(e) => handleFilterbySunExposure(e)}>
+                <option value="">-</option>
+                <option value="full sun">Full Sun</option>
+              </select>
+
+              <select
+                className="list-container-opt"
+                value={selectedOption1}
+                onChange={(e) => setSelectedOption1(e.target.value)}
+              >
+                {options1.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         </div>
-        <div className="list-container">
-          <p>
-            <strong>Sun Exposure: {selectedOption1}</strong>
-          </p>
-          <div className="list-containter-tog">
-            <select
-              className="list-container-opt"
-              value={selectedOption1}
-              onChange={(e) => setSelectedOption1(e.target.value)}
-            >
-              {options1.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-        </div>
-        
+
         <div className="upper-container">
-        <div className="list-container">
-          <p>
-            <strong>Categories: {selectedOption2}</strong>
-          </p>
-          <div className="list-containter-tog">
-            <select
-              className="list-container-opt"
-              value={selectedOption2}
-              onChange={(e) => setSelectedOption2(e.target.value)}
-            >
-              {options2.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
-
-        <div className="list-container">
-          <p>
-            <strong>Season: {selectedOption3}</strong>
-          </p>
-          <div className="list-containter-tog">
-            <select
-              className="list-container-opt"
-              value={selectedOption3}
-              onChange={(e) => setSelectedOption3(e.target.value)}
-            >
-              {options3.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-          </div>
+          <div className="list-container">
+            <p>
+              <strong>Categories: {selectedOption2}</strong>
+            </p>
+            <div className="list-containter-tog">
+              <select
+                className="list-container-opt"
+                value={selectedOption2}
+                onChange={(e) => setSelectedOption2(e.target.value)}
+              >
+                {options2.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
 
+          <div className="list-container">
+            <p>
+              <strong>Season: {selectedOption3}</strong>
+            </p>
+            <div className="list-containter-tog">
+              <select
+                className="list-container-opt"
+                value={selectedOption3}
+                onChange={(e) => setSelectedOption3(e.target.value)}
+              >
+                {options3.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
         </div>
       </div>
       <div className="btn-container">
-      <div>
-        {plant.map((plant) => (
-          <PlantCard key={plant.id} plant={plant} />
-        ))}
+        <div>
+          {plant.map((plant) => (
+            <PlantCard key={plant.id} plant={plant} />
+          ))}
+        </div>
+        {/* // add onclick */}
+        <button className="list-button" onClick={handleFilter}>Search</button>
       </div>
-      {/* // add onclick */}
-            <button className="list-button" >Search</button> 
-          </div>
     </>
   );
 }

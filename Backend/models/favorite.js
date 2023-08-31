@@ -7,7 +7,7 @@ const sequelizeInstance = dbConnect.Sequelize;
 class Favorite extends Model {}
 
 Favorite.init(
-// const newFolder = new Schema(
+
   {
     id: {
       type: DataTypes.INTEGER,

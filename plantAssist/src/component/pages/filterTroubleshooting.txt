@@ -1,0 +1,26 @@
+   const [plant, setPlant] = useState([]);
+  
+  useEffect(() => {
+    //get user is from session storage
+    //users can also browse and filter without being logged in
+    const userId = sessionStorage.getItem("id");
+    //get plant array from plant endpoint (shouldn't need to use user endpoint here)
+    fetch("http://localhost:8080/api/plant/")
+      .then((response) => response.json())
+      .then((json) => {
+        //extract array and call the API
+        const plantId = json.data[0].plantIds;
+        fetch("http://localhost:8080/api/plant/list", {
+          method: "POST",
+          body: JSON.stringify({ plantIds: plantId }),
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+          },
+        })
+          .then((response) => response.json())
+          .then((json) => {
+            //update state to response from API
+            setPlant(json.data);
+          });
+      });
+  }, []);

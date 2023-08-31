@@ -60,7 +60,7 @@ const updatePlant = (req, res) => {
 };
 
 const deletePlant = (req, res) => {
-  Models.Movie.destroy({ where: { id: req.params.id } })
+  Models.Plant.destroy({ where: { id: req.params.id } })
     .then((data) => {
       res.send({ result: 201, data: data });
     })

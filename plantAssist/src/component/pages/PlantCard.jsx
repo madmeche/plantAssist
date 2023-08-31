@@ -7,6 +7,7 @@ function PlantCard(props) {
   const handleFavorite = () => {
     console.log(plant.id);
     const userId = sessionStorage.getItem("id");
+    
     const data = {
       plantId: plant.id,
     };

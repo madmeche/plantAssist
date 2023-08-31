@@ -17,11 +17,10 @@
   font-size: 20px;
 }
 
-img {
-  /* outline: #242222 solid; */
-  width: 1px;
-  height: 8vh;
-}
+/* .sun-logo {
+  width: auto !important ;
+  
+} */
 
 .navbar-container {
   /* outline: rgb(88, 49, 3) solid; */
@@ -40,14 +39,15 @@ img {
 .navbar-logo {
   /* outline: green solid; */
   color: #fff;
-  margin-left: -115px;
+  margin-left: -275px;
   cursor: pointer;
   display: flex;
+  justify-content: bottom;
   font-family: 'Times New Roman', Times, serif;
-  top: 0;
+  /* top: 0; */
   /* padding-bottom: 35px; */
-  height: 10vh;
-  font-size: 30px;
+  height: 7vh;
+  font-size: 40px;
 }
 
 .nav-menu {
@@ -75,7 +75,7 @@ img {
 .nav-links {
   color: #fff;
   font-family: 'Times New Roman', Times, serif;
-  display: block;
+  display: flex;
   align-items: center;
   text-decoration: none;
   padding: 0.5rem 1rem;
@@ -98,7 +98,11 @@ img {
 
 .navbar-menu-container {
   /* outline: orange solid; */
-  height: 10vh;
+  margin-left: 45px;
+  
+  justify-content: left;
+ width: 20vw;
+  height: 7vh;
 }
 
 .navbar-menu-icon {
