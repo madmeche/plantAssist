@@ -4,9 +4,9 @@ function AboutUs () {
 
     return(
         <>
-        <div className='container'>
-        <div className='au-header'><h1>About the Creater</h1></div>
-        <div className='body'><p>
+        <div className='body-profile'>
+        <div className='header'>About the Creater</div>
+        <div className='body-about'><p>
             During COVID lockdown of 2020, it was very common for people to develop a hobby.
             Madeleine was post Mardi Gras accident and recovery from the consequential surgery.
             This lead to lots of time spent outdoors enjoying her back patio. 

@@ -1,5 +1,7 @@
 const Models = require('../models')
 
+const {Op} = require('sequelize')
+
 const getFolder = (res) => {
   Models.Folder.findAll({})
     .then((data) => {
@@ -42,6 +44,18 @@ const createFolder = async (data, res) => {
         throw err;
       });
   };
+
+  const getFoldersByIds = (req, res) => {
+    console.log(req.body.folderIds);
+    Models.Folder.findAll({ where: { id: { [Op.or]: req.body.folderIds } } })
+      .then((data) => {
+        res.send({ result: 200, success: true, data: data });
+      })
+      .catch((err) => {
+        console.log("Error:", err);
+        throw err;
+      });
+  };
   
   const updateFolder = (req, res) => {
     console.log("Controller:", req.body)
@@ -68,6 +82,6 @@ const createFolder = async (data, res) => {
   }
   
   module.exports = {
-    getFolder, getFolderById, createFolder, updateFolder, deleteFolder
+    getFolder, getFolderById, getFoldersByIds, createFolder, updateFolder, deleteFolder
   }
 

@@ -4,24 +4,56 @@ import Folder from './Folder'
 import '../styles/Profile.css'
 import FolderCard from "./FolderCard";
 
+
+// // API/FOLDERS
+// const data = [
+//   {
+//     folderIds: [1,2,5]
+//   }
+// ]
+// // API/FOLDERS/LIST
+// const folderData = [
+//   {
+//     id: 1,
+//     title: "Folder 1",
+//     plantIds: [2,3,4]
+//   },
+//   {
+//     id: 2,
+//     title: "Folder 2",
+//     plantIds: [1,5,7]
+//   }
+// ]
+
 function FoldersList() {
   const [folders, setFolders] = useState([]);
 
+
+
   useEffect(() => {
     const userId = sessionStorage.getItem("id");
-    fetch(`http://localhost:8080/api/folders/${userId}`)
+    fetch(`http://localhost:8080/api/users/${userId}`)
       .then((response) => response.json())
       .then((json) => {
-        // console.log("response:", json),
-        // setPlants(json.data[0].plantIds),
-        const plantId = json.data[0].plantIds[0];
-        fetch(`http://localhost:8080/api/folders/list`)
+        console.log("API/users:", json)
+        // setPlants(json.data[0].plantIds)
+
+        const folderIds = json.data[0].folderIds;
+
+        fetch(`http://localhost:8080/api/folder/list`, {
+          method: "POST",
+          body: JSON.stringify(folderIds),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
           .then((response) => response.json())
           .then((json) => {
+            console.log("API/folder/list", json)
             setFolders(json.data);
           });
       });
-  });
+  },[]);
 
   return (
     <>

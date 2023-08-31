@@ -10,14 +10,13 @@ const userRoutes = require("./routes/userRoutes");
 const plantRoutes = require("./routes/plantRoutes");
 const recentRoutes = require("./routes/recentRoutes")
 const favoritesRoutes = require("./routes/favoritesRoutes");
-const foldersRoutes = require("./routes/foldersRoutes");
 const folderRoutes = require("./routes/folderRoutes");
 
-// const seedPlant = require('./seeds/seedPlant')
-// seedPlant.seedPlant()
+const seedPlant = require('./seeds/seedPlant')
+seedPlant.seedPlant()
 
-// const seedUser = require('./seeds/seedUser')
-// seedUser.seedUsers()
+const seedUser = require('./seeds/seedUser')
+seedUser.seedUsers()
 
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");
@@ -49,8 +48,7 @@ app.use(cors(corsOptions))
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/plant", plantRoutes);
-app.use("/api/folders", foldersRoutes);
-app.use("/api/folders/folder", folderRoutes);
+app.use("/api/folder", folderRoutes);
 app.use("/api/recents", recentRoutes);
 app.use("/api/favorites", favoritesRoutes);
 
