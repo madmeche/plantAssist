@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
-import { PlantDataContext } from "../../PlantDataContext";
+import PlantCard from "./PlantCard";
 import { Link } from "react-router-dom";
 import "../styles/homeStyle.css";
 // Go to setting to access profile page.
 
 function Home() {
-  const plantContext = useContext(PlantDataContext);
+  // const plantContext = useContext(PlantDataContext);
 
   const [selectedOption0, setSelectedOption0] = useState("");
   const [selectedOption1, setSelectedOption1] = useState("");
@@ -32,7 +32,7 @@ function Home() {
 
   const options1 = [
     { value: "" },
-    { value: "Full Sun", label: "Full Sun" },
+    { value: "full sun", label: "Full Sun" },
     { value: "1-3 Hours", label: "1-3 Hours" },
     { value: "3-6 Hours", label: "3-6 Hours" },
     { value: "6-9 Hours", label: "6-9 Hours" },
@@ -43,79 +43,81 @@ function Home() {
 
   const options2 = [
     { value: "" },
-    { value: "Annuals", label: "Annuals" },
-    { value: "Perennials", label: "Perennials" },
-    { value: "Shrubs", label: "Shrubs" },
-    { value: "Trees", label: "Trees" },
-    { value: "Vines", label: "Vines" },
-    { value: "Succulent", label: "Succulent" },
-    { value: "Indoor", label: "Indoor" },
+    { value: "annuals", label: "Annuals" },
+    { value: "perennials", label: "Perennials" },
+    { value: "shrubs", label: "Shrubs" },
+    { value: "trees", label: "Trees" },
+    { value: "vines", label: "Vines" },
+    { value: "succulent", label: "Succulent" },
+    { value: "indoor", label: "Indoor" },
     { value: null, label: "Any" },
     ,
   ];
 
   const options3 = [
     { value: "" },
-    { value: "Spring", label: "Spring" },
-    { value: "Summer", label: "Summer" },
-    { value: "Fall", label: "Fall" },
-    { value: "Winter", label: "Winter" },
+    { value: "spring", label: "Spring" },
+    { value: "summer", label: "Summer" },
+    { value: "fall", label: "Fall" },
+    { value: "winter", label: "Winter" },
     { value: null, label: "Any" },
   ];
 
   const [data, setData] = useState([]);
-  const [plant, setPlant] = useState([]); //movies, setMovies
+  const [plants, setPlants] = useState([]); //movies, setMovies
 
   // const [zone, setZone] = useState("");
   const [sunExposure, setSunExposure] = useState(""); //filter1
   // const [categories, setCategories] = useState("");
   // const [season, setSeason] = useState("");
 
+  // useEffect(() => {
+  //   fetch("http://localhost:8080/api/plant/")
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       setPlants(json.data);
+  //     });
+  //   setPlants(plants);
+  // }, []);
+
   const handleFilterbySunExposure = (e) => {
-    //handlefilterchange1
     e.preventDefault();
+
     console.log(e.target.value);
-    setSunExposure(e.target.value);
+    setPlants(e.target.value);
   };
 
   const handleFilter = () => {
-    const filteredPlants = plant.filter((plant) => {
+    const filteredPlants = async () => {
+      try {
+        const response = await fetch("http://localhost:8080/api/plants/");
+        const data = await response.json();
+        setPlants(data.data);
+      } catch (error) {
+        console.error("Error:", error);
+      }
       const filter = {
         bySunExposure: true,
       };
 
-      if (sunExposure) {
-        filter.bySunExposure = plant.sunExposure.includes(sunExposure); //sets as boolean
+      //adjust filter keys based on if they're selected, an empty string means it's not selected AKA false in JS
+      if (plants) {
+        filter.bySunExposure = plants.sunExposure
+          .toLowerCase()
+          .includes(plants); //this sets a boolean
       }
-      //return filter.byName && filter.image;
-      return Object.values(filter).every((val) => val === false || !!val); // reference: "upmostly.com"
-    });
-    setPlant(filteredPlants);
-    console.log(sunExposure, filteredPlants);
-    console.log("filtered plants:", filteredPlants);
-    //     setData([...filteredPlants])
 
-    const clearFilters = () => {
-      //reset the movies list to the original
-      setPlant(plant);
+      //return a boolean of the following expression
+      return filter.bySunExposure;
     };
 
-    useEffect(() => {
-      fetch("http://localhost:8080/api/plant/")
-        .then((response) => response.json())
-        .then((json) => {
-          setPlant(json.data);
-        });
-      setPlant(plant);
-    }, []);
+    setPlants(filteredPlants);
+    console.log(plants);
+  };
 
-    //   let filterSunExposure = plant.filter((sunExposure) => {
-    //     let splitplant = plant.name.split(' ')
-    //         console.log(splitplant)
-    //         //[0] must = name
-    //         if ( [0] !== sunExposure )
-    //         return plant
-    //   });
+  const handleResetPlantList = () => {
+    let resetplants = plants;
+    resetplantsPlants(resetplants);
   };
 
   return (
@@ -129,8 +131,8 @@ function Home() {
             <div className="list-containter-tog">
               <select
                 className="list-container-opt"
-                value={selectedOption0}
-                onChange={(e) => setSelectedOption0(e.target.value)}
+                value={plants} 
+                onChange={(e) => handleFilterbySunExposure(e)}
               >
                 {options0.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -144,12 +146,16 @@ function Home() {
             <p>
               <strong>Sun Exposure: {selectedOption1}</strong>
             </p>
-            <div 
-            className="list-containter-tog">
-
-              <select value={sunExposure} onChange={(e) => handleFilterbySunExposure(e)}>
-                <option value="">-</option>
-                <option value="full sun">Full Sun</option>
+            <div className="list-containter-tog">
+              <select
+                value={plants}
+                onChange={(e) => handleFilterbySunExposure(e)}
+              >
+                {options1.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                  ))}
               </select>
 
               <select
@@ -209,12 +215,17 @@ function Home() {
       </div>
       <div className="btn-container">
         <div>
-          {plant.map((plant) => (
+          {/* {plants.map((plant) => (
             <PlantCard key={plant.id} plant={plant} />
-          ))}
+          ))} */}
         </div>
         {/* // add onclick */}
-        <button className="list-button" onClick={handleFilter}>Search</button>
+        <button className="list-button" onClick={handleFilter}>
+          Search
+        </button>
+        <button className="list-button" onClick={handleResetPlantList}>
+          Reset
+        </button>
       </div>
     </>
   );
