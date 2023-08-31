@@ -37,11 +37,12 @@ function FoldersList() {
         console.log("API/users:", json)
         // setPlants(json.data[0].plantIds)
 
-        const folderIds = json.data[0].folderIds;
+        const data = {folderIds: json.data[0].folderIds}
 
         fetch(`http://localhost:8080/api/folder/list`, {
           method: "POST",
           body: JSON.stringify(folderIds),
+          body: JSON.stringify(data),
           headers: {
             "Content-type": "application/json; charset=UTF-8",
           },
@@ -63,7 +64,7 @@ function FoldersList() {
           <FolderCard key={folder.id} folder={folder} />
         ))}
         <div className="folders">
-          <Link to='/folders/folder'>**Name of Folder**</Link>
+          {/* <Link to='/folders/folder'>**Name of Folder**</Link> */}
 
         </div>
       </div>

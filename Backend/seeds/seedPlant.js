@@ -182,7 +182,7 @@ const seedPlant = async () => {
           throw err;
         });
   
-      // Check if the data returned has a user or not
+      // Check if the data returned has a plant or not
       if (plant.length === 0) {
         // If no user, add one
         Models.Plant.create(element)

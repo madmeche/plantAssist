@@ -1,5 +1,7 @@
 const Models = require("../models");
 
+const bcrypt = require('bcrypt')
+
 const data = [
   {
     firstName: "madeleine",
@@ -48,6 +50,14 @@ const seedUsers = async () => {
 
     // Check if the data returned has a user or not
     if (user.length === 0) {
+      //hash the password for new user
+      const rounds = 10; 
+      const salt = await bcrypt.genSalt(rounds);
+      const originalPassword = element.password;
+      const hashedPassword = await bcrypt.hash(originalPassword, salt);
+
+      element.password = hashedPassword
+      
       // If no user, add one
       Models.User.create(element)
         .then((data) => {

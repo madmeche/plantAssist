@@ -63,7 +63,13 @@
   justify-content: right;
 }
 
-
+.folder-name{
+  outline: black solid;
+  font-size: 60px;
+  margin-top: 110px;
+  justify-content: center;
+  text-align: center;
+}
 
 .folder-button {
   background: transparent;

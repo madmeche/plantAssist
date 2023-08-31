@@ -13,7 +13,8 @@ function Favorites() {
         console.log("response:", json);
         // setPlants(json.data[0].plantIds),
 
-        const data = { plantIds: json.data[0].plantIds };
+        // const data = { plantIds: json.data[0].plantIds };
+        const data = { plantIds: plantId.plant.id };
 
         fetch(`http://localhost:8080/api/plant/list`, {
           method: "POST",

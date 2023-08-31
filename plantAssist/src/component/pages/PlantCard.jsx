@@ -56,10 +56,10 @@ function PlantCard(props) {
       <div style={styles}>
         <div className="name-desc">
         <div className="plant-name">
-        Name: <b>{plant.name}</b> 
+        <b>{plant.name}</b> 
         </div>
         <div className="plant-description">
-        Description: {plant.description}
+        {plant.description}
         </div>
         </div> 
         {/* <div className="buttons"> */}

@@ -63,39 +63,39 @@ function Home() {
   ];
 
   
-  useEffect(() => {
-    const findPlant = plant.map((plant) => (
-      <PlantCard key={plant.id} plant={plant} />))
-    fetch("http://localhost:8080/api/plant")
-      .then((response) => response.json())
-      .then((json) => {
-        console.log("Response", json.data);
-        setData(json.data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   const findPlant = plant.map((plant) => (
+  //     <PlantCard key={plant.id} plant={plant} />))
+  //   fetch("http://localhost:8080/api/plant")
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       console.log("Response", json.data);
+  //       setData(json.data);
+  //     });
+  // }, []);
   
 
-  const handleFilterPlant = (findPlant) => {
+  // const handleFilterPlant = (findPlant) => {
     
-    let filterPlant = plant.filter((findPlant) => {
-      let splitplant = plant.name.split(' ')
-          console.log(splitplant) 
-          //[0] must = name 
-          if ( [0] !== findPlant ) 
-          return plant
-    }); 
-  };
+  //   let filterPlant = plant.filter((findPlant) => {
+  //     let splitplant = plant.name.split(' ')
+  //         console.log(splitplant) 
+  //         //[0] must = name 
+  //         if ( [0] !== findPlant ) 
+  //         return plant
+  //   }); 
+  // };
 
-  const handleFilterbySunExposure = (sunExposure) => {
+  // const handleFilterbySunExposure = (sunExposure) => {
     
-    let filterSunExposure = plant.filter((sunExposure) => {
-      let splitplant = plant.name.split(' ')
-          console.log(splitplant) 
-          //[0] must = name 
-          if ( [0] !== sunExposure ) 
-          return plant
-    }); 
-  };
+  //   let filterSunExposure = plant.filter((sunExposure) => {
+  //     let splitplant = plant.name.split(' ')
+  //         console.log(splitplant) 
+  //         //[0] must = name 
+  //         if ( [0] !== sunExposure ) 
+  //         return plant
+  //   }); 
+  // };
   
   return (
     <>
@@ -186,7 +186,8 @@ function Home() {
           <PlantCard key={plant.id} plant={plant} />
         ))}
       </div>
-            <button className="list-button" onClick={handleFilterPlant}>Search</button>
+      {/* // add onclick */}
+            <button className="list-button" >Search</button> 
           </div>
     </>
   );

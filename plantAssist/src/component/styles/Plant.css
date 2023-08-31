@@ -5,28 +5,34 @@
   padding: 10px;
   font-size: 12px;
   display: flex;
+  justify-content: center;
   text-align: center;
 }
 
 .card-list-container {
+  outline: black solid 5px;
+  width: 100%;
   margin-top: 60px;
   margin-bottom: 30px;
 }
 
 .list-title {
+  /* outline: black solid; */
   display: flex;
   width: 100vw;
   font-size: 30px;
   justify-content: center;
-  position: static;
 }
 
 .list-list {
-  width: 35vw;
+  width: 100vw;
   display: grid;
+  border: 2px;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  margin: 0;
+  margin: 1px;
+  padding: 1px;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 1024px) {

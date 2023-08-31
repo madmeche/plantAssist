@@ -14,7 +14,9 @@ import Profile from "./component/pages/Profile";
 import AboutUs from "./component/pages/AboutUs";
 import Logout from "./component/pages/Logout";
 import FoldersList from "./component/pages/FoldersList";
+import FolderDetails from "./component/pages/FolderDetails";
 import Recents from "./component/pages/Recents";
+
 
 function App() {
   // const [currentForm, setCurrentForm] = useState('login')
@@ -51,6 +53,7 @@ function App() {
         <Route path="/zone" element={<Zone />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/folders" element={<FoldersList />} />
+        <Route path='/folders/:id' element={<FolderDetails />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="recents" element={<Recents />} />

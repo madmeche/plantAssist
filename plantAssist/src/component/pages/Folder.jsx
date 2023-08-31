@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
 import "../styles/Plant.css";
 
-function Favorites() {
+function Folder() {
   const [plants, setPlants] = useState([]);
 
   useEffect(() => {
@@ -45,4 +45,4 @@ function Favorites() {
   );
 }
 
-export default Favorites;
+export default Folder;

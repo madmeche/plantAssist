@@ -17,9 +17,8 @@ Folder.init(
     },
     title: {
       type: DataTypes.STRING,
-      required: [true, "Please add a Folder Title"],
-      maxlength: [10, "Title can not be more than 25 characters"],
-      minlength: [3, "Title must have atleast three character"],
+      required: true,
+   
     },
 
     plantIds: {

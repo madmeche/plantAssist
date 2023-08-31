@@ -46,7 +46,7 @@ const createFolder = async (data, res) => {
   };
 
   const getFoldersByIds = (req, res) => {
-    console.log(req.body.folderIds);
+    console.log('Folder IDs', req.body.folderIds);
     Models.Folder.findAll({ where: { id: { [Op.or]: req.body.folderIds } } })
       .then((data) => {
         res.send({ result: 200, success: true, data: data });

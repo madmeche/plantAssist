@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import PlantCard from "./PlantCard";
-import FoldersList from "./FoldersList";
 import "../styles/Plant.css";
 
 function FolderDetails() {
   const [plants, setPlants] = useState([]);
+  //get the folder id from URL params
+  const { id } = useParams();
 
   useEffect(() => {
-    const userId = sessionStorage.getItem("id");
-    fetch(`http://localhost:8080/api/favorites/${userId}`)
+    fetch(`http://localhost:8080/api/folder/${id}`)
       .then((response) => response.json())
       .then((json) => {
         console.log("response:", json);
         // setPlants(json.data[0].plantIds),
 
-        const folderIds = json.data[0].folderIds;
+        const data = { plantIds: json.data[0].plantIds };
 
-        fetch(`http://localhost:8080/api/folders/list`, {
+        fetch(`http://localhost:8080/api/folder/list`, {
           method: "POST",
-          body: JSON.stringify(folderIds),
+          body: JSON.stringify(data),
           headers: {
             "Content-type": "application/json; charset=UTF-8",
           },
@@ -32,22 +33,17 @@ function FolderDetails() {
   }, []);
 
   return (
-    <>
-    <div className='body-profile'>
-      <div className="header">Folders</div>
-      <div className="ffr-body">
-        {folders.map((folder) => (
-          <FolderCard key={folder.id} folder={folder} />
-        ))}
-        <div className="folders">
-          <Link to='/folders/folder'>**Name of Folder**</Link>
-
+    <div className="card-list-container">
+      <div className="list-title">Favorites</div>
+      <div className="list-body">
+        <div className="list-list">
+          {plants.map((plant) => (
+            <PlantCard key={plant.id} plant={plant} />
+          ))}
+          {/* add handleDelete */}
         </div>
       </div>
-      </div>
-
-      {/* add handleDelete */}
-    </> 
+    </div>
   );
 }
 

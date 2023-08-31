@@ -57,7 +57,7 @@ const updateFavorite = (req, res) => {
           throw err;
         });
     }else{
-      res.statusCode(404).json({success: false, message: "Favorite ID not found"})
+      res.status(404).json({success: false, message: "Favorite ID not found"})
     }
   });
 };
