@@ -1,8 +1,8 @@
 import React from "react";
 import "../styles/PlantCard.css";
 
-function PlantCard(props) {
-  const { plant } = props;
+function FolderCard(props) {
+  const { folder } = props;
 
   const handleFavorite = () => {
     console.log(plant.id);
@@ -43,7 +43,7 @@ function PlantCard(props) {
   };
 
   const styles = {
-    backgroundImage: `url(${plant.image})`,
+    // backgroundImage: `url(${plant.image})`,
     backgroundSize: "cover",
     justifyContent: "center",
     width: "50vh",
@@ -56,15 +56,12 @@ function PlantCard(props) {
       <div style={styles}>
         <div className="name-desc">
         <div className="plant-name">
-        Name: <b>{plant.name}</b> 
-        </div>
-        <div className="plant-description">
-        Description: {plant.description}
+        Name: <b>{folder.title}</b> 
         </div>
         </div> 
         {/* <div className="buttons"> */}
         <button className="card-button" onClick={handleFavorite}>
-       💗
+        💗
         </button>
         <button className="folder-button" onClick={handleAddFolder}>
           ➕
@@ -75,4 +72,4 @@ function PlantCard(props) {
     </>
   );
 }
-export default PlantCard;
+export default FolderCard;

@@ -1,6 +1,75 @@
+.body-profile {
+  margin: 0;
+  justify-content: center;
+  width: 100vw;
+  /* height: 50vh; */
+  padding-left: 20px;
+}
 .header {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 50px;
+  color: black;
+}
+
+.ffr-body {
+  /* outline: orange solid; */
+  padding-left: 15px;
+  margin-right: 10px;
+  width: 97vw;
+  display: flex;
+  justify-content: center;
+}
+
+.folders-favorites-recents {
+  margin-right: 0;
+  padding-right: 0;
+  /* outline: black solid; */
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  justify-content: space-between;
+}
+
+.folders a {
+    box-shadow: inset 0 0 0 0 #2b430e;
+    color: #2b430e;
+    font-size: 28px;
+    margin: 0 -0.25rem;
+    padding: 0 0.25rem;
+    transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.folders a:hover {
+    box-shadow: inset 500px 0 0 0 #2b430e;
+    color: white;
+  }
+
+.favorites a {
+    box-shadow: inset 0 0 0 0 #2b430e;
+    color: #2b430e;
+    font-size: 28px;
+    margin: 0 -0.25rem;
+    padding: 0 0.25rem;
+    transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.favorites a:hover {
+    box-shadow: inset 500px 0 0 0 #2b430e;
+    color: white;
+  }
+
+.recents a {
+  box-shadow: inset 0 0 0 0 #2b430e;
+  color: #2b430e;
+  font-size: 28px;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+  transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.recents a:hover {
+  box-shadow: inset 100px 0 0 0 #2b430e;
+  color: white;
 }

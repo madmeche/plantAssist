@@ -20,7 +20,7 @@ const data = [
   {
     name: "Sunshine Ligustrum",
     description: "Evergreen shrub with year round golden foliage",
-    image: "https://southernlivingplants.com/wp-content/uploads/Five_Uses_for_Sunshine_Ligustrum_1200x6302.jpg",
+    image: "https://neilsperry.com/wp-content/uploads/2023/06/6-15-23-Sunshine-ligustrum-grouping-other-shrubs.jpg",
     type: "shrub",
     sunExposure: ["6-12", "full sun"],
     season: ["spring", "fall"],
@@ -68,7 +68,7 @@ const data = [
   {
     name: "Daffodils",
     description: "single flower of yellow or white petals surrounding a trumpet on a long green stalk",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1xPhc63e3dcL_3vVD_IrlQzkpjkh8eYpqVA&usqp=CAU",
+    image: "https://h2.commercev3.net/cdn.brecks.com/images/800/99613A.jpg",
     type: "perennial",
     sunExposure: ["6-9", "3-6","9-12", "full sun"],
     season: ["spring", "summer"],
@@ -84,7 +84,7 @@ const data = [
   {
     name: "Hydrangea",
     description: "deciduous shrubs with flowers in terminal, round or umbrella-shaped clusters in colors of white, pink, or blue, or even purple",
-    image: "https://floralife.com.ua/image/cache/catalog/encyclopedia/hydrangea-enc/hydrangea-top-1200x900.jpg",
+    image: "https://i.shgcdn.com/e90fe375-af84-48d3-a3e3-12e24e45d241/-/format/auto/-/preview/3000x3000/-/quality/lighter/",
     type: "shrub",
     sunExposure: ["3-6", "6-9", "9-12"],
     season: ["fall", "spring", "summer"],
@@ -100,7 +100,7 @@ const data = [
   {
     name: "Weeping Willow",
     description: "medium to large deciduous tree with a stout trunk topped by a graceful broad-rounded crown of branches that sweep downward to the ground",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX2_2Qre8E4MeaoXXkCYKdZfy-3H2vpRWMOSX0MmDlnwXWfldqhEKSxE1U_JM10iozW0c&usqp=CAU",
+    image: "https://thisoldhouse.jppadmin.com/wp-content/uploads/sites/10/2022/05/AdobeStock_236514178__1_.0-scaled.jpg",
     type: "tree",
     sunExposure: ["9-12", "full sun"],
     season: ["fall", "spring", "summer"],
@@ -148,7 +148,7 @@ const data = [
   {
     name: "English Ivy",
     description: "vigorous, aggressive, fast-growing, woody evergreen perennial that is primarily grown as a climbing vine or trailing ground cover",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_OjkbcbgkwlF6ivbSHlJuKYvwSVyr2RKiUg&usqp=CAU",
+    image: "https://www.cultuslake.bc.ca/wp-content/uploads/2021/10/green-ivy-covering.jpg",
     type: "vine",
     sunExposure: ["1-3", "3-6","6-9"],
     season: ["fall", "spring", "summer"],

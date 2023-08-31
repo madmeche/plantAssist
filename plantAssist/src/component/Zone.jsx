@@ -6,7 +6,7 @@ import './Zone.css'
 
 function HardyZone () {
     return(
-        <div className='img-container'>
+        <div className='zone-img-container'>
         <img src={Zone} />
         </div>
     )

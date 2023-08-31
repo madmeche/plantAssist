@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
+import PrivateRoute from "./component/utils/PrivateRoute";
 import Navbar from "./component/NavBar";
 import Footer from "./component/Footer";
 import Home from "./component/pages/Home";
 import Login from "./component/pages/Login";
 import Register from "./component/pages/Register";
 import PlantList from "./component/pages/PlantList";
-import Zone from './component/Zone'
+import Zone from "./component/Zone";
 import Favorites from "./component/pages/Favorites";
 import Profile from "./component/pages/Profile";
 import AboutUs from "./component/pages/AboutUs";
 import Logout from "./component/pages/Logout";
-import Folders from "./component/pages/Folders"
-import Recents from "./component/pages/Recents"
+import FoldersList from "./component/pages/FoldersList";
+import Recents from "./component/pages/Recents";
 
 function App() {
   // const [currentForm, setCurrentForm] = useState('login')
@@ -31,23 +32,29 @@ function App() {
 
   return (
     <>
-        <Navbar />
-        <Footer />
-        <Routes>
-          <Route path="/plants" element={<PlantList />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/" element={<Home />} />
-          <Route path='/profile' element={<Profile/>} />
-          <Route path='/plants' element={<PlantList />} />
-          <Route path='/zone' element={<Zone />} />
-          <Route path='/favorites' element={<Favorites/>} />
-          <Route path='/folders' element={<Folders/>} />
-          <Route path='/aboutus' element={<AboutUs/>} />
-          <Route path='/logout' element={<Logout/>} />
-          <Route path='recents' element={<Recents />} />
-        </Routes>
-   
+      <Navbar />
+      <Footer />
+      <Routes>
+        <Route path="/plants" element={<PlantList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/profile"
+          element={
+            // <PrivateRoute>
+              <Profile />
+            // {/* </PrivateRoute> */}
+          }
+        />
+        <Route path="/plants" element={<PlantList />} />
+        <Route path="/zone" element={<Zone />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/folders" element={<FoldersList />} />
+        <Route path="/aboutus" element={<AboutUs />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="recents" element={<Recents />} />
+      </Routes>
     </>
   );
 }

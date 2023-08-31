@@ -48,11 +48,11 @@ const handleSubmit = (e) => {
   return (
     <>
 
-      <div className="container">
+      <div className="log-container">
         
         <form onSubmit={handleSubmit}>
           <div className="auth-form-container">
-            <div className="header"><h2>Login</h2></div>
+            <div className="log-header"><h2>Login</h2></div>
 
             <label htmlFor="email">email</label>
             <input

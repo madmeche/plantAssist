@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import PlantCard from "./PlantCard";
-import "../styles/PlantCard.css";
+import "../styles/Plant.css";
 
-function Recents() {
+function Favorites() {
   const [plants, setPlants] = useState([]);
 
   useEffect(() => {
-    const userId = sessionStorage.getItem("id"); //tried adding JSON.stringify
-    fetch(`http://localhost:8080/api/recents/${userId}`)
+    const userId = sessionStorage.getItem("id");
+    fetch(`http://localhost:8080/api/folders/${userId}`)
       .then((response) => response.json())
       .then((json) => {
         console.log("response:", json);
@@ -24,24 +24,25 @@ function Recents() {
         })
           .then((response) => response.json())
           .then((json) => {
-            console.log("API/plant/list:", json);
+            console.log("API/folders/folder", json);
             setPlants(json.data);
           });
       });
   }, []);
 
   return (
-    <div className="body-profile">
-      <div className="header">Recents</div>
-      <div className="list-list">
-        {plants.map((plant) => (
-          <PlantCard key={plant.id} plant={plant} />
-        ))}
+    <div className="card-list-container">
+      <div className="list-title">Favorites</div>
+      <div className="list-body">
+        <div className="list-list">
+          {plants.map((plant) => (
+            <PlantCard key={plant.id} plant={plant} />
+          ))}
+        </div>
+        {/* add handleDelete */}
       </div>
-
-      {/* add handleDelete */}
     </div>
   );
 }
 
-export default Recents;
+export default Favorites;

@@ -11,6 +11,14 @@
 
 }
 
+.header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 60px;
+    color: black;
+}
+
 .upper-container{
     /* outline: black solid; */
     display: flex;

@@ -44,17 +44,17 @@ User.init(
       required: true,
     },
    
-    // //PLURAL WILL CONTAIN A JOSN OBJECT OF FOLDER IDS
-    // foldersId: {
-    //   type: DataTypes.JSON,
-  
-    // },
-
     //PLURAL WILL CONTAIN A JOSN OBJECT OF FOLDER IDS
-    folderId: {
+    foldersIds: {
       type: DataTypes.JSON,
   
     },
+
+    // //PLURAL WILL CONTAIN A JOSN OBJECT OF FOLDER IDS
+    // folderIds: {
+    //   type: DataTypes.JSON,
+  
+    // },
     //SINGULAR WILL POINT TO A RECORD BY FAVORITE ID
     favoriteId: {
       type: DataTypes.STRING,

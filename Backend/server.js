@@ -10,10 +10,11 @@ const userRoutes = require("./routes/userRoutes");
 const plantRoutes = require("./routes/plantRoutes");
 const recentRoutes = require("./routes/recentRoutes")
 const favoritesRoutes = require("./routes/favoritesRoutes");
-const foldersRoutes = require("./routes/recentRoutes");
+const foldersRoutes = require("./routes/foldersRoutes");
+const folderRoutes = require("./routes/folderRoutes");
 
-const seedPlant = require('./seeds/seedPlant')
-seedPlant.seedPlant()
+// const seedPlant = require('./seeds/seedPlant')
+// seedPlant.seedPlant()
 
 // const seedUser = require('./seeds/seedUser')
 // seedUser.seedUsers()
@@ -49,6 +50,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/plant", plantRoutes);
 app.use("/api/folders", foldersRoutes);
+app.use("/api/folders/folder", folderRoutes);
 app.use("/api/recents", recentRoutes);
 app.use("/api/favorites", favoritesRoutes);
 
@@ -56,11 +58,6 @@ app.get("/", (req, res) => {
   res.send({ message: "Welcome to Plant Assist" });
 });
 
-// app.post('/users', (req, res) => {
-//     const { name, email, password } = req.body;
-//     // create user logic here
-//     res.send('User created successfully!');
-//   });
 
 const PORT = process.env.PORT || 8080;
 

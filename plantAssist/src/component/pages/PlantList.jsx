@@ -17,8 +17,8 @@ function PlantList() {
 
   return (
     <div className="card-list-container">
-      <div className="list-body">Plant List</div>
-      <div>
+      <div className="list-title">Plant List</div>
+      <div className="list-body">
         <div className="list-list">
           {data.map((plant) => (
             <PlantCard key={plant.id} plant={plant} />

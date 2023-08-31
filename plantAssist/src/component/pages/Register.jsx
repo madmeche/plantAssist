@@ -47,10 +47,10 @@ const Register = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="reg-container">
         <form onSubmit={handleSubmit}>
           <div className="auth-form-container">
-            <div className="header">
+            <div className="reg-header">
               <h2>Register</h2>
             </div>
             <div className="pass">

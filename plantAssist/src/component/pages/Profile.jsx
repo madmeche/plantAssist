@@ -21,14 +21,25 @@ function Profile(props) {
     });
 
     return(
-        <>
-        <h1>Welcome to your Profile</h1>
-        <div className='header'>
+        <div className='body-profile'>
+
+        <div className='header'>Welcome to your Profile</div>
+        <div className='ffr-body'>
+        <div className='folders-favorites-recents'>
+        <div className='folders'>
        <Link to='/folders'>Folders</Link>
+       </div>
+       <div className='favorites'>
         <Link to='/favorites'>Favorites</Link>
-        {/* <Link to='/recents'>Recents</Link> */}
         </div>
-        </>
+        <div className='recents'>
+        <Link to='/recents'>Recents</Link>
+        </div>
+        </div>
+        </div>
+        
+        </div>
+        
     )
 }
 export default Profile;

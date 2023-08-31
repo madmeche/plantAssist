@@ -1,17 +1,19 @@
-.container {
+.reg-container {
     /* outline: orange solid 5px; */
     display: flex;
     height: 100%;
-    width: 100dvw;
+    width: 100vw;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 5px;
+    padding: 1px;
+    margin-top: 25px;
+    margin-bottom: 25px;
    
 }
 
-.header{
-    margin-bottom: 20px;
+.reg-header{
+    margin-bottom: 1px;
 }
 
 .auth-form-container {

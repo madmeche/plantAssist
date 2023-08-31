@@ -1,9 +1,7 @@
-"use strict"
-
 const Models = require('../models')
 
-const getFolders = (res) => {
-  Models.Folders.findAll({})
+const getFolder = (res) => {
+  Models.Folder.findAll({})
     .then((data) => {
       // Do NOT return passwords
       // Remove the password key before returning
@@ -19,9 +17,9 @@ const getFolders = (res) => {
     })
 }
 
-const createFolders = async (data, res) => {
+const createFolder = async (data, res) => {
     
-    Models.Folders.create(data)
+    Models.Folder.create(data)
    
       .then((data) => {
         res.status(201).json({result: 201, data: data})
@@ -32,8 +30,8 @@ const createFolders = async (data, res) => {
       })
   }
 
-  const getFoldersById = (req, res) => {
-    Models.Folders.findAll({
+  const getFolderById = (req, res) => {
+    Models.Folder.findAll({
       where: { id: req.params.id },
     })
       .then(function (data) {
@@ -45,9 +43,9 @@ const createFolders = async (data, res) => {
       });
   };
   
-  const updateFolders = (req, res) => {
+  const updateFolder = (req, res) => {
     console.log("Controller:", req.body)
-    Models.Folders.update(req.body, { where: {id: req.params.id}})
+    Models.Folder.update(req.body, { where: {id: req.params.id}})
       .then((data) => {
         res.send({result: 201, data: data})
       })
@@ -57,9 +55,9 @@ const createFolders = async (data, res) => {
       })
   }
   
-  const deleteFolders = (req, res) => {
+  const deleteFolder = (req, res) => {
     console.log("Controller:", req.body)
-    Models.Folders.destroy( {where: {id: req.params.id}})
+    Models.Folder.destroy( {where: {id: req.params.id}})
       .then((data) => {
         res.send({result: 201, data: data})
       })
@@ -70,6 +68,6 @@ const createFolders = async (data, res) => {
   }
   
   module.exports = {
-    getFolders, getFoldersById, createFolders, updateFolders, deleteFolders
+    getFolder, getFolderById, createFolder, updateFolder, deleteFolder
   }
 

@@ -10,18 +10,22 @@
 
 .card-list-container {
   margin-top: 60px;
+  margin-bottom: 30px;
 }
 
-.list-body {
+.list-title {
   display: flex;
+  width: 100vw;
   font-size: 30px;
   justify-content: center;
   position: static;
-  /* outline: black solid; */
 }
 
 .list-list {
-  width: 100vw;
+  width: 35vw;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   margin: 0;
 }
 

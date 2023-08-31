@@ -1,13 +1,15 @@
 .body{
   position: static;
   margin:0;
-  outline: black solid;
-  display: grid;
-  grid: repeat(2,1fr);
+  outline: rgb(74, 113, 16) solid;
+  background-color: rgb(230, 230, 163);
+  /* display: grid; */
+  /* grid: repeat(2,1fr); */
+  justify-content: center;
 }
 
 .list-list{
-  width: 100vw
+  width:40vw
 }
 
 .card-container {
@@ -35,33 +37,6 @@
   transition-delay: 200ms ease-in;
 }
 
-/* .card-img {
-  height: 12rem;
-  width: 100%;
-  object-fit: cover;
-} */
-/* 
-.wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
-  gap: 2rem;
-  justify-content: center;
-} */
-
-.card-title {
-  background-color: rgba(245, 245, 220, 0.659);
-  padding: 1rem;
-  outline: brown solid;
-}
-
-.card-description {
-  outline: green solid;
-  position: absolute;
-  padding: 1rem;
-  display: flex;
-  /* position: sticky; */
-  background-color: rgba(245, 245, 220, 0.659);
-}
 
 .card {
   outline: white solid;
@@ -84,11 +59,35 @@
 .card-button {
   background: transparent;
   right:0;
+  bottom: 0;
   justify-content: right;
 }
+
+
 
 .folder-button {
   background: transparent;
   right:0;
   justify-content: right;
+}
+
+.plant-name{
+  top:0;
+  background-color: rgb(238, 230, 163);
+  
+}
+.name-desc {
+  outline: white solid;
+}
+
+.plant-description{
+  /* position: absolute;
+  bottom: 0; */
+  background-color: rgb(238, 230, 163);
+}
+
+.buttons {
+  position: absolute;
+  bottom: 0;
+  background-color: rgb(238, 230, 163);
 }
