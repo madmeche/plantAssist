@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
-import Folder from './Folder'
 import '../styles/Profile.css'
 import FolderCard from "./FolderCard";
 
