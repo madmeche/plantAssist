@@ -16,8 +16,7 @@ function Favorites() {
         const data = { plantIds: json.data[0].plantIds };
         // const data = { plantIds: plantId.plant.id };
 
-        fetch(`http://localhost:8080/api/plant/list`, 
-        {
+        fetch(`http://localhost:8080/api/plant/list`, {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
@@ -32,6 +31,17 @@ function Favorites() {
       });
   }, []);
 
+  const handleDeleteFavorite = () => {
+    fetch(`http://localhost:8080/api/plant/${userId}`, {
+      method: "DELETE",
+      headers: { "content-Type": "application/JSON" },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        console.log("delete card:", json);
+      });
+  };
+
   return (
     <div className="card-list-container">
       <div className="list-title">Favorites</div>
@@ -41,6 +51,7 @@ function Favorites() {
             <PlantCard key={plant.id} plant={plant} />
           ))}
         </div>
+
         {/* add handleDelete */}
       </div>
     </div>

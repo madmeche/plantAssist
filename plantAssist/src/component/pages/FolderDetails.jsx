@@ -6,7 +6,7 @@ import "../styles/Plant.css";
 function FolderDetails() {
   const [plants, setPlants] = useState([]);
   //get the folder id from URL params
-  const { id } = useParams();
+  const { id } = useParams(); //returns an object of key/value pairs of the dynamic params
 
   useEffect(() => {
     fetch(`http://localhost:8080/api/folder/${id}`)
@@ -24,6 +24,12 @@ function FolderDetails() {
             "Content-type": "application/json; charset=UTF-8",
           },
         })
+        
+        //another fetch request to get the folder titles
+        //Map over the folder tiles, display to user
+        //User can click on a folder title, user can nav to /folder/<title>
+        //On new page /folder/<title> fetch request to get all the plants by id
+
           .then((response) => response.json())
           .then((json) => {
             console.log("API/plant/list:", json);
@@ -38,7 +44,11 @@ function FolderDetails() {
       <div className="list-body">
         <div className="list-list">
           {plants.map((plant) => (
-            <PlantCard key={plant.id} plant={plant} />
+            <PlantCard key={plant.id} plant={plant} /> 
+            // Pretty much always when you have a dynamic 
+            //route like this you want to access the dynamic value 
+            //in your custom component which is where the useParams hook comes in
+            //https://blog.webdevsimplified.com/2022-07/react-router/
           ))}
           {/* add handleDelete */}
         </div>

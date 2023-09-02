@@ -7,7 +7,7 @@ const data = [
     image: "https://www.logees.com/media/catalog/product/cache/088d41982d5ddfc4a0a1e449b5ddd946/R/1/R1083-2-large.jpg",
     type: "shrub",
     sunExposure: ["full sun"],
-    season: ["Fall"],
+    season: ["fall"],
     moistureLevel: "dry",
     zone: ["9","10","11"],
     indoor:"false",

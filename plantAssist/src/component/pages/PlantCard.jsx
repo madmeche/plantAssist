@@ -1,8 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import "../styles/PlantCard.css";
 
 function PlantCard(props) {
   const { plant } = props;
+  const [saved, setSaved] = useState(false)
 
   const handleFavorite = () => {
     console.log(plant.id);
@@ -20,9 +22,17 @@ function PlantCard(props) {
     })
       .then((response) => response.json())
       .then((json) => {
-        console.log("Response", json);
-      });
+        if(json.success){
+          console.log("Response", json);
+          setSaved(true)
+        } else {
+          console.error('Error', json.message)
+        }
+        });
+      
   };
+
+  // const deleteButton = authenticated && userHandle ===
 
   const handleAddFolder = () => {
     console.log(plant.id);
@@ -64,8 +74,8 @@ function PlantCard(props) {
         </div>
         </div> 
         {/* <div className="buttons"> */}
-        <button className="card-button" onClick={handleFavorite}>
-       💗
+        <button className="card-button" onClick={handleFavorite}>{saved ? "✔️" : "💗"}
+       
         </button>
         <button className="folder-button" onClick={handleAddFolder}>
           ➕

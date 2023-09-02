@@ -41,7 +41,7 @@ function FoldersList() {
 
         fetch(`http://localhost:8080/api/folder/list`, {
           method: "POST",
-          body: JSON.stringify(folderIds),
+          body: JSON.stringify(folders),
           body: JSON.stringify(data),
           headers: {
             "Content-type": "application/json; charset=UTF-8",
