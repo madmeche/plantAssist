@@ -52,7 +52,7 @@ User.init(
 
     //PLURAL WILL CONTAIN A JOSN OBJECT OF FOLDER IDS
     folderIds: {
-      type: DataTypes.JSON,
+      type: DataTypes.STRING,
     },
 
     //SINGULAR WILL POINT TO A RECORD BY FAVORITE ID

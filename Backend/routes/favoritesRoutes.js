@@ -27,7 +27,7 @@ router.put('/:id', (req, res) => {
 
 // localhost:8080/api/favorites/<user_id>  
 router.delete('/:id', (req, res) => {
-  Controllers.favoriteController.deleteFavorites(req, res)
+  Controllers.favoriteController.deleteFavorite(req, res)
 })
 
 // console.log("Router:", req.body)

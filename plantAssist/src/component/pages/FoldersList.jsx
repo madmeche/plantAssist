@@ -27,8 +27,6 @@ import FolderCard from "./FolderCard";
 function FoldersList() {
   const [folders, setFolders] = useState([]);
 
-
-
   useEffect(() => {
     const userId = sessionStorage.getItem("id");
     fetch(`http://localhost:8080/api/users/${userId}`)
@@ -37,7 +35,8 @@ function FoldersList() {
         console.log("API/users:", json)
         // setPlants(json.data[0].plantIds)
 
-        const data = {folderIds: json.data[0].folderIds}
+        // const data = json.data[0].folderIds
+        // const data = {folderIds: json.data[0].folderIds}
 
         fetch(`http://localhost:8080/api/folder/list`, {
           method: "POST",
