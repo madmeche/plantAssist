@@ -1,27 +1,34 @@
-# Plant Assist
+# Foliage Finder
+Previously "Plant Assist"
 
-Project Title
-The name of the Project
-
-Screenshots
-![Writing](https://unsplash.com/photos/VBPzRgd7gfc)
-
-Setup
+# Setup
 download or clone the repository
 run npm install
 
-Status
+In mySQL workbench, create a new schema called
+plant_assist
+
+Create .env file:
+PORT = 8080
+DB_NAME = plant_assist
+DB_USER = *users*
+DB_PASSWORD = *users*
+DB_HOST = localhost
+DB_PORT = 3306
+
+# Status
 Foliage Finder is still in progress. Newer versions will be released.
 
-User can browse an array of plants, or narrow down their search based on their zipcode to locate their hardiness zone.
+User can currently browse an array of plants, or narrow down their search based on their zipcode to locate their hardiness zone.
 Even further filtering by type of plant, sun exposure, or season of blooming is optional.
 User can save Favorites for quick viewing later.
-A filter of bloom color planned for future releases.
 
-Also in future releases, a user will be able to:
+
+In future releases, a user will be able to:
     create folders identify plants for certain areas of their home.
     add and remove items from the folder.
     a recent collection of viewed plants will be saved to their Recent File.
+    filter of bloom color planned for future releases.
 
 Seeding was used to create an array of plants for functioning purposes.
 mySQL is being used to store users, plants, folders, favorites, and recents. 
@@ -29,7 +36,7 @@ There are plans to increase the API for plants.
 
 Folder, Favorite, and Recent is recognized by the userId, and data saved with plantIds.
 
-Postman Testing:
+# Postman Testing:
 
 POST:
 http://localhost:8000/api/auth/signup
