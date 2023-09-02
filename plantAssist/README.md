@@ -1,10 +1,5 @@
 # Foliage Finder
 
-# Description
-How it looks (screenshots 📷, gifs, etc.)
-Instructions on how to run or use it👨‍💻
-Should contain other relevant details (code samples, tech framework, credits, etc.)
-
 # About the Project
 Horticulture is (or can be) a beautiful blend of science and art. 
 It  can require years of practice growing plants in different environments to master it.
