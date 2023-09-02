@@ -12,14 +12,14 @@ const recentRoutes = require("./routes/recentRoutes")
 const favoritesRoutes = require("./routes/favoritesRoutes");
 const folderRoutes = require("./routes/folderRoutes");
 
-// const seedPlant = require('./seeds/seedPlant')
-// seedPlant.seedPlant()
+const seedPlant = require('./seeds/seedPlant')
+seedPlant.seedPlant()
 
 // const seedUser = require('./seeds/seedUser')
 // seedUser.seedUsers()
 
-const seedFolder = require('./seeds/seedFolder')
-seedFolder.seedFolder()
+// const seedFolder = require('./seeds/seedFolder')
+// seedFolder.seedFolder()
 
 app.use(function (req, res, next) {
   res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173");

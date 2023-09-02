@@ -30,7 +30,7 @@ Plant.init(
       required: true,
     },
     type: {
-      type: DataTypes.STRING,
+      type: DataTypes.JSON,
       allowNull: false,
       required: true,
     },

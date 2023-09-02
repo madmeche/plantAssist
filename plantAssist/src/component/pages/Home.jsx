@@ -1,7 +1,9 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import PlantCard from "./PlantCard";
+import PlantList from "./PlantList";
 import { Link } from "react-router-dom";
+import '../styles/Plant.css'
 import "../styles/homeStyle.css";
 // Go to setting to access profile page.
 
@@ -43,11 +45,11 @@ function Home() {
 
   const options2 = [
     { value: "" },
-    { value: "annuals", label: "Annuals" },
-    { value: "perennials", label: "Perennials" },
-    { value: "shrubs", label: "Shrubs" },
-    { value: "trees", label: "Trees" },
-    { value: "vines", label: "Vines" },
+    { value: "annual", label: "Annuals" },
+    { value: "perennial", label: "Perennials" },
+    { value: "shrub", label: "Shrubs" },
+    { value: "tree", label: "Trees" },
+    { value: "vine", label: "Vines" },
     { value: "succulent", label: "Succulent" },
     { value: "indoor", label: "Indoor" },
     { value: null, label: "Any" },
@@ -154,12 +156,13 @@ function Home() {
       <div className="list">
         <div className="upper-container">
           <div className="list-container">
-            <p>
+            <div className="filter-title">
               <strong>Zone: {selectedOption0}</strong>
-            </p>
+            </div>
             <div className="list-containter-tog">
               
             <select
+            className="list-container-opt"
                 value={zone}
                 onChange={(e) => handleFilterByZone(e)}
               >
@@ -174,11 +177,12 @@ function Home() {
             </div>
           </div>
           <div className="list-container">
-            <p>
+            <div className="filter-title">
               <strong>Sun Exposure: {selectedOption1}</strong>
-            </p>
+            </div>
             <div className="list-containter-tog">
               <select
+              className="list-container-opt"
                 value={sunExp}
                 onChange={(e) => handleFilterbySunExposure(e)}
               >
@@ -195,11 +199,12 @@ function Home() {
 
         <div className="upper-container">
           <div className="list-container">
-            <p>
+            <div className="filter-title">
               <strong>Type {selectedOption2}</strong>
-            </p>
+            </div>
             <div className="list-containter-tog">
-            <select
+            <select 
+            className="list-container-opt"
                 value={type}
                 onChange={(e) => handleFilterByType(e)}
               >
@@ -213,9 +218,9 @@ function Home() {
           </div>
 
           <div className="list-container">
-            <p>
+            <div className="filter-title">
               <strong>Season: {selectedOption3}</strong>
-            </p>
+            </div>
             <div className="list-containter-tog">
               <select
                 className="list-container-opt"
@@ -233,11 +238,7 @@ function Home() {
         </div>
       </div>
       <div className="btn-container">
-        <div>
-          {/* {plants.map((plant) => (
-            <PlantCard key={plant.id} plant={plant} />
-          ))} */}
-        </div>
+        
         {/* // add onclick */}
         <button className="list-button" onClick={handleFilter}>
           Search
@@ -246,6 +247,16 @@ function Home() {
           Reset
         </button>
       </div>
+      <div className="card-list-container">
+      <div className="list-title">Plant List</div>
+      <div className="list-body">
+        <div className="list-list">
+          {plants.map((plant) => (
+            <PlantCard key={plant.id} plant={plant} />
+          ))}
+        </div>
+      </div>
+        </div>
     </>
   );
 }

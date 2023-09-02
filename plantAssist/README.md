@@ -1,12 +1,4 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
+# Foliage Finder
 
 What areas should a basic Readme cover?
 Every readme should cover at least the following:
@@ -16,19 +8,46 @@ How it looks (screenshots 📷, gifs, etc.)
 Instructions on how to run or use it👨‍💻
 Should contain other relevant details (code samples, tech framework, credits, etc.)
 
-Project Title: 📛
-The name of the project
-
 About the Project: 📚 (The problem)
-Give a brief description of the project. What was the reason or motivation behind the creation of the project?
+Horticulture is (or can be) a beautiful blend of science and art. 
+It  can require years of practice growing plants in different environments to master it.
+So, horticulture seemed to be for people with passion and patience to pursue it. 
+
+But everyone should be able to enjoy it.
+
+Horticulture is a branch of agriculture, and covers a wide range of plants, so it seemed best to narrow it down to specifics. Out of the four main branches, I opted to learn more about floriculture, and landscaping.
+
 
 The Solution:
 
-Technologies Used: ☕️ 🐍 ⚛️
-List the tools and technologies used to build the project. Doing this can help developers familiar with these technologies to contribute and help improve the codebase.
+Foliage Finder was developed to take guess work out of home gardening.
 
-Setup / Installation: 💻
-Concisely and clearly, list the steps needed to run the project.
+This app can save new gardeners or even experienced landscapers time and money by reducing the options for planting in specific areas.
+
+There are other popular plant apps on the market
+But they are only able to identify an unknown plant, 
+or give possible causes to for a sick plant. 
+
+This app helps prevent certain plant illnesses by providing ample information and filtering by plants that are adequate for specific areas.
+
+
+Setup / Installation: 
+Install Node.js.
+Install MySQL.
+Clone this Repo.
+
+In mySQL workbench, create a new schema called
+plant_assist
+
+
+Create .env file:
+PORT = 8080
+DB_NAME = plant_assist
+DB_USER = *users*
+DB_PASSWORD = *users*
+DB_HOST = localhost
+DB_PORT = 3306
+
 
 Approach: 🚶
 Briefly explain how you went about the project. The design patterns implemented and code styles used.
